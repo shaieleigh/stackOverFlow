@@ -1,0 +1,34 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.box {
+    width: 80%;
+    padding: 20px;
+    height: 65%;
+
+  }
+
+.signUpDiv {
+    position: absolute;
+    left: 60%;
+    top: 10%;
+    bottom: 10%;
+    border: 1px solid lightgrey;
+    width: 25%;
+    padding: 10px;
+    height: 55%;
+}
+
+label {
+    font: 15px Arial, "Helvetica Neue";
+    font-weight: bold;
+    padding: 0px 2px;
+}
+
+.buttonDiv {
+  padding: 10px 0px 10px 0px;
+  margin:
+}

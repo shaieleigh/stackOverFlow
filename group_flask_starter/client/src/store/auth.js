@@ -17,7 +17,45 @@ export const removeUser = () => {
     }
 }
 
-export const signup = (email, fullName, username, password) => {
+
+export const login = (email, password) => {
+    return async dispatch => {
+      const res = await fetch('/api/session', {
+
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+          "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+        },
+        body: JSON.stringify({ email, password })
+
+      });
+
+      res.data = await res.json();
+      if (res.ok) {
+        dispatch(setUser(res.data))
+      }
+      return res;
+    }
+  }
+
+
+export const logout = () => {
+    return async (dispatch) => {
+      const res = await fetch('/api/session', {
+        method: "delete",
+        headers: {
+          "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+        },
+      });
+      if (res.ok) dispatch(removeUser());
+      res.data = await res.json();
+      return res;
+    };
+};
+
+
+export const signup = (email, username, password) => {
     return async (dispatch) => {
       const res = await fetch('api/users', {
         method: "post",
@@ -25,7 +63,7 @@ export const signup = (email, fullName, username, password) => {
           "Content-Type": "application/json",
           "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
         },
-        body: JSON.stringify({ email, fullName, username, password })
+        body: JSON.stringify({ email, username, password })
       });
       const data = await res.json();
       dispatch(setUser(data));

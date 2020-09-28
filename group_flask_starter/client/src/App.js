@@ -1,32 +1,42 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import Pages from './pages/Pages';
+import { useDispatch } from 'react-redux';
+import { setUser } from './store/auth';
+import { CssBaseline } from '@material-ui/core';
+// import ThemeProvider from 'material-ui/styles/';
 
-import UserList from './components/UsersList';
+// import UserList from './components/UsersList';
 
 
 function App() {
 
-  return (
-    <BrowserRouter>
-        <nav>
-            <ul>
-                <li><NavLink to="/" activeclass="active">Home</NavLink></li>
-                <li><NavLink to="/users" activeclass="active">Users</NavLink></li>
-            </ul>
-        </nav>
-        <Switch>
-            <Route path="/users">
-                <UserList />
-            </Route>
+    // const [loading, setLoading] = useState(true);
+    // const dispatch = useDispatch();
 
-            <Route path="/">
-                <h1>My Home Page</h1>
-            </Route>
-        </Switch>
-        <Pages/>
-    </BrowserRouter>
-  );
+    // useEffect(() => {
+    //   const loadUser = async () => {
+    //     const res = await fetch("/api/session");
+    //     if (res.ok) {
+    //       res.data = await res.json();
+    //       dispatch(setUser(res.data.user))
+    //     }
+    //     setLoading(false);
+    //   }
+    //   loadUser();
+    // }, [dispatch]);
+
+    // if (loading) return null;
+
+    return (
+        <>
+          <CssBaseline>
+            <BrowserRouter>
+                <Pages />
+            </BrowserRouter>
+          </CssBaseline>
+        </>
+    );
 }
 
 export default App;
