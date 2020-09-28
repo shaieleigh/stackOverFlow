@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import Pages from './pages/Pages';
 
 import UserList from './components/UsersList';
 
@@ -23,6 +24,7 @@ function App() {
                 <h1>My Home Page</h1>
             </Route>
         </Switch>
+        <Pages/>
     </BrowserRouter>
   );
 }

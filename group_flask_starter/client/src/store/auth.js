@@ -17,7 +17,7 @@ export const removeUser = () => {
     }
 }
 
-export const signup = (email, password, username) => {
+export const signup = (email, fullName, username, password) => {
     return async (dispatch) => {
       const res = await fetch('api/users', {
         method: "post",
@@ -25,10 +25,9 @@ export const signup = (email, password, username) => {
           "Content-Type": "application/json",
           "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
         },
-        body: JSON.stringify({ email, password, username})
+        body: JSON.stringify({ email, fullName, username, password })
       });
       const data = await res.json();
-      debugger
       dispatch(setUser(data));
       res.data = data;
       return res;
