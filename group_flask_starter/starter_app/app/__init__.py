@@ -2,7 +2,8 @@ import os
 from flask import Flask, render_template, request, session
 from flask_cors import CORS
 from flask_wtf.csrf import CSRFProtect, generate_csrf
-
+from flask_migrate import Migrate
+from flask_jwt_extended import JWTManager
 
 from .models import db, User
 from .api.user_routes import user_routes
@@ -14,8 +15,10 @@ app = Flask(__name__)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 db.init_app(app)
+migrate = Migrate(app, db)
 
 ## Application Security
+jwt = JWTManager(app)
 CORS(app)
 @app.after_request
 def inject_csrf_token(response):
