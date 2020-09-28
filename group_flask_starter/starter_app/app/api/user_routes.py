@@ -25,69 +25,70 @@ def index():
   return {"users": [user.to_dict() for user in response]}
 
 
-# @user_routes.route('/login', methods=['POST'])
-# def login():
-#     data = request.get_json()
-#     print('-------------------****------------------')
-#     print(data)
+@user_routes.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    print('-------------------****------------------')
+    print(data)
 
-#     try:
-#         username = data['username']
-#         password = data['password']
+    try:
+        username = data['username']
+        password = data['password']
 
-#         if not username or not password:
-#             return jsonify(message='Username and password required'), 400
-#         # elif not password:
-#         #     return jsonify(message='Password Required'), 400
+        if not username or not password:
+            return jsonify(message='Username and password required'), 400
+        # elif not password:
+        #     return jsonify(message='Password Required'), 400
 
-#         user = User.query.filter_by(username=username).first()
-#         if not user:
-#             return jsonify(message='Username not found'), 400
+        user = User.query.filter_by(username=username).first()
+        if not user:
+            return jsonify(message='Username not found'), 400
 
-#         verified = verify_password(password, user.hashed_password)
+        verified = verify_password(password, user.hashed_password)
 
-#         if not verified:
-#             # Error needs handling decision
-#             return jsonify(message='Password verify failed'), 403
-#         else:
-#             auth_token = create_access_token(
-#                 identity={"username": user.username})
-#         return jsonify(auth_token=auth_token), 200
+        if not verified:
+            # Error needs handling decision
+            return jsonify(message='Password verify failed'), 403
+        else:
+            auth_token = create_access_token(
+                identity={"username": user.username})
+        return jsonify(auth_token=auth_token), 200
 
-#     except Exception:
-#         return jsonify(message='Login failed'), 408
+    except Exception:
+        return jsonify(message='Login failed'), 408
 
 
-# @user_routes.route('/signup', methods=['POST'])
-# def signup():
-#     data = request.get_json()
+@user_routes.route('/signup', methods=['POST'])
+def signup():
+    data = request.get_json()
+    print("data", data)
+# try:
+    print("********************")
+    username = data['username']
+    email = data['email']
+    hashed_password = set_password(data['password'])
+    # if not username:
+    #     return jsonify(message="Username required"), 400
+    # elif not email:
+    #     return jsonify(message='Email required'), 400
+    # elif not (data['password'] == data['rePassword']):
+    #     return jsonify(message="Passwords must match"), 400
 
-#     try:
-#         username = data['username']
-#         email = data['email']
+    # try:
+    #     hashed_password = set_password(data['password'])
+    # except Exception:
+    #     return jsonify(message='Password required'), 400
 
-#         if not username:
-#             return jsonify(message="Username required"), 400
-#         elif not email:
-#             return jsonify(message='Email required'), 400
-#         elif not (data['password'] == data['rePassword']):
-#             return jsonify(message="Passwords must match"), 400
+    user = User(
+        username=username,
+        email=email,
+        hashed_password=hashed_password,
+    )
+    db.session.add(user)
+    db.session.commit()
 
-#         try:
-#             hashed_password = set_password(data['password'])
-#         except Exception:
-#             return jsonify(message='Password required'), 400
+    auth_token = create_access_token(identity={"email": user.email})
+    return jsonify(auth_token=auth_token), 200
 
-#         user = User(
-#             username=username,
-#             email=email,
-#             hashed_password=hashed_password,
-#         )
-#         db.session.add(user)
-#         db.session.commit()
-
-#         auth_token = create_access_token(identity={"email": user.email})
-#         return jsonify(auth_token=auth_token), 200
-
-#     except Exception:
-#         return jsonify(message="try failed"), 409
+    # except Exception:
+    #     return jsonify(message="try failed"), 409
