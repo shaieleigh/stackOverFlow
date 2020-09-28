@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from app.models import User, db
 from flask_jwt_extended import JWTManager, create_access_token
+from flask_login import logout_user
 import bcrypt
 
 user_routes = Blueprint('users', __name__)
@@ -86,3 +87,8 @@ def signup():
 
     # except Exception:
     #     return jsonify(message="try failed"), 409
+
+@user_routes.route("/logout", methods=["DELETE"])
+def logout():
+    logout_user()
+    return 'Goodbye!'
