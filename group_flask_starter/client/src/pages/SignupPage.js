@@ -18,7 +18,7 @@ const colors = {
 const useStyles = makeStyles({
     root: {
       color: colors.text,
-      width: "100%"c,
+      width: "100%",
       backgroundColor: colors.background,
       "&:hover": {
         backgroundColor: colors.background
@@ -30,7 +30,7 @@ const theme = createMuiTheme({
     overrides: {
       MuiInputBase: {
         input: {
-          background: "white",
+        //   background: "white",
           font: "15px Helvetica Neue",
           padding: "5px",
         }
@@ -39,7 +39,6 @@ const theme = createMuiTheme({
         label: {
           textTransform: "none",
           font: "13px Roboto",
-          padding: "5px"
         },
       }
     },

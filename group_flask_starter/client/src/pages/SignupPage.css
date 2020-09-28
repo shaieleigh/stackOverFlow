@@ -2,6 +2,13 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
+}
+
+.MuiBox-root {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
 }
 
 .box {
@@ -18,8 +25,9 @@ form {
     bottom: 10%;
     border: 1px solid lightgrey;
     width: 25%;
-    padding: 10px;
     height: 55%;
+    display: flex;
+    justify-content: center;
 }
 
 label {
@@ -30,5 +38,5 @@ label {
 
 .buttonDiv {
   padding: 10px 0px 10px 0px;
-  margin:
+  margin: 0;
 }

@@ -20,7 +20,7 @@ export const removeUser = () => {
 
 export const login = (email, password) => {
     return async dispatch => {
-      const res = await fetch('/api/session', {
+      const res = await fetch('/api/users/login', {
 
         method: "put",
         headers: {
@@ -42,11 +42,8 @@ export const login = (email, password) => {
 
 export const logout = () => {
     return async (dispatch) => {
-      const res = await fetch('/api/session', {
+      const res = await fetch('/api/users', {
         method: "delete",
-        headers: {
-          "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
-        },
       });
       if (res.ok) dispatch(removeUser());
       res.data = await res.json();
@@ -57,7 +54,7 @@ export const logout = () => {
 
 export const signup = (email, username, password) => {
     return async (dispatch) => {
-      const res = await fetch('api/users', {
+      const res = await fetch('api/users/signup', {
         method: "post",
         headers: {
           "Content-Type": "application/json",
