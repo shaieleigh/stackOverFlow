@@ -3,17 +3,20 @@ load_dotenv()
 
 from app import app, db
 from app.models import User
+from app.api.user_routes import set_password
+
+hashed = set_password('password')
 
 with app.app_context():
   db.drop_all()
   db.create_all()
 
-  ian = User(username = 'Ian', email = 'ian@aa.io', hashed_password='password')
-  javier = User(username = 'Javier', email = 'javier@aa.io', hashed_password='password')
-  dean = User(username = 'Dean', email = 'dean@aa.io', hashed_password='password')
-  angela = User(username = 'Angela', email = 'angela@aa.io', hashed_password='password')
-  soonmi = User(username = 'Soon-Mi', email = 'soonmi@aa.io', hashed_password='password')
-  alissa = User(username = 'Alissa', email = 'alissa@aa.io', hashed_password='password')
+  ian = User(username = 'Ian', email = 'ian@aa.io', hashed_password=hashed)
+  javier = User(username = 'Javier', email = 'javier@aa.io', hashed_password=hashed)
+  dean = User(username = 'Dean', email = 'dean@aa.io', hashed_password=hashed)
+  angela = User(username = 'Angela', email = 'angela@aa.io', hashed_password=hashed)
+  soonmi = User(username = 'Soon-Mi', email = 'soonmi@aa.io', hashed_password=hashed)
+  alissa = User(username = 'Alissa', email = 'alissa@aa.io', hashed_password=hashed)
 
   db.session.add(ian)
   db.session.add(javier)
