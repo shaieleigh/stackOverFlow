@@ -2,8 +2,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from app import app, db
-from app.models import User
+from app.models import User, Question
 from app.api.user_routes import set_password
+from datetime import datetime
 
 hashed = set_password('password')
 
@@ -24,5 +25,19 @@ with app.app_context():
   db.session.add(angela)
   db.session.add(soonmi)
   db.session.add(alissa)
+
+  q1 = Question(userId = 1, body = 'This is a questionable question', date_created = datetime(2020, 9, 29, 14, 34, 26))
+  q2 = Question(userId = 2, body = 'I am hungry', date_created = datetime(2019, 9, 29, 14, 34, 26))
+  q3 = Question(userId = 3, body = 'What is your favorite snack', date_created = datetime(2020, 7, 2, 14, 34, 26))
+  q4 = Question(userId = 4, body = 'I love hot cheetos with cheese', date_created = datetime(2020, 5, 7, 14, 34, 26))
+  q5 = Question(userId = 5, body = 'How many licks does it take to get to the center?', date_created = datetime(2020, 3, 14, 14, 34, 26))
+  q6 = Question(userId = 6, body = 'What is inside a churro?', date_created = datetime(2020, 1, 31, 14, 34, 26))
+
+  db.session.add(q1)
+  db.session.add(q2)
+  db.session.add(q3)
+  db.session.add(q4)
+  db.session.add(q5)
+  db.session.add(q6)
 
   db.session.commit()
