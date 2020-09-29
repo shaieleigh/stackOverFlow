@@ -35,12 +35,12 @@ def login():
     password = data['password']
 
     if not email or not password:
-        return jsonify(message='Username and password required'), 400
+        return jsonify(message='Email and password required'), 400
 
 
     user = User.query.filter_by(email=email).first()
     if not user:
-        return jsonify(message='Username not found'), 400
+        return jsonify(message='email not found'), 400
 
     verified = verify_password(password, user.hashed_password)
 

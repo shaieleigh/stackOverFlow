@@ -21,7 +21,8 @@ export const removeUser = () => {
 export const login = (email, password) => {
     return async dispatch => {
       const res = await fetch('/api/users/login', {
-        method: "POST",
+
+        method: "post",
         headers: {
           "Content-Type": "application/json",
           "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
