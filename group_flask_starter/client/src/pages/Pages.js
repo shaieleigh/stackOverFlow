@@ -8,12 +8,15 @@ import SignupPage from './SignupPage';
 
 import LoginPage from './LoginPage';
 
+import Questions from './Questions';
+
 
 export default function Pages() {
   return (
     <>
       <Route path="/signup" component={SignupPage} />
       <Route path="/login" component={LoginPage} />
+      <Route path="/questions" component={Questions} />
     </>
   )
 }
