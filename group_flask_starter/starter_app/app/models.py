@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -26,10 +27,12 @@ class Question(db.Model):
   userId = db.Column(db.Integer, db.ForeignKey('users.id'),
         nullable=False)
   body = db.Column(db.String(2000), nullable= False)
+  date_created = db.Column(db.DateTime, default=datetime.now())
 
   def to_dict(self):
     return {
       "id": self.id,
       "userId": self.userId,
       "body": self.body,
+      "date_created": self.date_created
     }
