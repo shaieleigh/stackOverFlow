@@ -92,4 +92,3 @@ def signup():
 def logout():
     logout_user()
     return 'Goodbye!'
-

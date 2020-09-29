@@ -59,6 +59,7 @@ function LoginPage() {
       await dispatch(login(email, password));
       history.push("/");
     }
+
     const handleDemoSubmit = async (e) => {
         e.preventDefault();
         await dispatch(login("demo@example.com", "password"));
@@ -86,9 +87,9 @@ function LoginPage() {
                             Log in
                         </Button>
                         </div>
-                        <form onSubmit={handleDemoSubmit}>
+                        <div>
                             <Button type="submit" classes={classes} variant="contained" disableElevation>Log in as demo user</Button>
-                        </form>
+                        </div>
                 </form>
             </ThemeProvider>
         </Container>

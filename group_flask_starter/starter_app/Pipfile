@@ -25,7 +25,10 @@ flask-jwt-extended = "==3.24.1"
 flask-migrate = "*"
 flask-login = "*"
 bcrypt = "*"
+<<<<<<< HEAD
+=======
 datetime = "*"
+>>>>>>> 281c9579c4d463613f4de12b1ca9e3c7f07dba39
 
 [requires]
 python_version = "3.8"
