@@ -7,7 +7,7 @@ import { Button } from '@material-ui/core';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import Box from '@material-ui/core/Box';
 import { TextField } from '@material-ui/core';
-import NavBar from '.'
+import NavBar from '../components/NavBar'
 
 import './SignupPage.css'
 
@@ -64,31 +64,34 @@ function SignupPage() {
     if (currentUserId) return <Redirect to="/" />;
 
     return (
-      <div className='signUpDiv'>
-        <Box className="box">
-            <ThemeProvider theme={theme}>
-              <form onSubmit={handleSubmit}>
-                <div className="buttonDiv">
-                  <div><label>Display name</label></div>
-                  <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setUsername(e.target.value)} />
-                </div>
-                <div className="buttonDiv">
-                  <div><label>Email</label></div>.
-                  <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setEmail(e.target.value)}/>
-                </div>
-                <div className="buttonDiv">
-                  <div><label>Password</label></div>
-                  <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
-                </div>
-                <div className="buttonDiv">
-                  <Button type="submit" classes={classes} variant="contained" disableElevation>
-                    Sign Up
-                  </Button>
-                </div>
-              </form>
-            </ThemeProvider>
-        </Box>
-      </div>
+      <>
+        <NavBar />
+        <div className='signUpDiv'>
+          <Box className="box">
+              <ThemeProvider theme={theme}>
+                <form onSubmit={handleSubmit}>
+                  <div className="buttonDiv">
+                    <div><label>Display name</label></div>
+                    <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setUsername(e.target.value)} />
+                  </div>
+                  <div className="buttonDiv">
+                    <div><label>Email</label></div>.
+                    <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setEmail(e.target.value)}/>
+                  </div>
+                  <div className="buttonDiv">
+                    <div><label>Password</label></div>
+                    <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
+                  </div>
+                  <div className="buttonDiv">
+                    <Button type="submit" classes={classes} variant="contained" disableElevation>
+                      Sign Up
+                    </Button>
+                  </div>
+                </form>
+              </ThemeProvider>
+          </Box>
+        </div>
+      </>
     )
 
 

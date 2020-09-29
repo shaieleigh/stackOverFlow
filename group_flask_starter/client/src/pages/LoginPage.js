@@ -7,7 +7,8 @@ import { Button } from '@material-ui/core';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { Container } from '@material-ui/core';
 import { TextField } from '@material-ui/core';
-import NavBar from '../components/NavBar'
+import NavBar from '../components/NavBar';
+
 
 const colors = {
     text: 'white',
