@@ -22,7 +22,7 @@ export const login = (email, password) => {
     return async dispatch => {
       const res = await fetch('/api/users/login', {
 
-        method: "put",
+        method: "post",
         headers: {
           "Content-Type": "application/json",
           "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
