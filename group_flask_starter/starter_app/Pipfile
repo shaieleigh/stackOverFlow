@@ -24,6 +24,8 @@ psycopg2-binary = "==2.8.6"
 flask-jwt-extended = "==3.24.1"
 flask-migrate = "*"
 flask-login = "*"
+bcrypt = "*"
+datetime = "*"
 
 [requires]
 python_version = "3.8"
