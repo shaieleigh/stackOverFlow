@@ -31,14 +31,14 @@ def login():
     data = request.get_json()
 
     # try:
-    username = data['username']
+    email = data['email']
     password = data['password']
 
-    if not username or not password:
+    if not email or not password:
         return jsonify(message='Username and password required'), 400
-    
 
-    user = User.query.filter_by(username=username).first()
+
+    user = User.query.filter_by(email=email).first()
     if not user:
         return jsonify(message='Username not found'), 400
 
@@ -48,7 +48,7 @@ def login():
         return jsonify(message='Password verify failed'), 403
     else:
         auth_token = create_access_token(
-            identity={"username": user.username})
+            identity={"email": user.email})
     return jsonify(auth_token=auth_token), 200
 
     # except Exception:
@@ -92,4 +92,3 @@ def signup():
 def logout():
     logout_user()
     return 'Goodbye!'
-
