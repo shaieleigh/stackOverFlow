@@ -75,6 +75,8 @@ function SignupPage() {
     return (
       <>
         <NavBar />
+        <div className='signUpBlurb'>
+        </div>
         <div className='signUpDiv'>
           <Box className="box">
               <ThemeProvider theme={theme}>
