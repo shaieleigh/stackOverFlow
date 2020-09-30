@@ -80,3 +80,22 @@ label {
   /* margin-bottom: 0px;
   margin-top: 80%; */
 }
+
+.errors-container {
+   display: flex;
+   justify-content: center;
+}
+
+.errors{
+    display: none;
+    width: 100%;
+    background-color: rgb(253, 183, 173);
+    border: 1px solid rgb(250, 96, 74);
+    border-color: rgb(250, 96, 74);
+    border-radius: 3px;
+    color: #333333;
+    margin: 16px 0;
+    padding: 12px;
+    text-align: center;
+    list-style-type: none;
+}
