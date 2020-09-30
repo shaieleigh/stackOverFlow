@@ -86,7 +86,7 @@ function LoginPage() {
                 <TextField className='signup' id="outlined-basic" variant="outlined" type="password" onChange = {e => setPassword(e.target.value)}/>
                         </div>
                         <div className="buttonDiv">
-                        <Button type="submit" classes={classes} variant="contained" disableElevation>
+                        <Button type="submit" classes={classes} variant="contained" disableElevation onClick={handleDemoSubmit}>
                             Log in
                         </Button>
                         </div>
