@@ -63,7 +63,7 @@ def signup():
     email = data['email']
     hashed_password = set_password(data['password'])
 
-    if not username or not email or not password:
+    if not username or not email or not hashed_password:
         return jsonify(message="Username, email, and password required"), 400
 
     # if not username:
