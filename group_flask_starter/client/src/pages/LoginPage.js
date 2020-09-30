@@ -57,7 +57,7 @@ function LoginPage() {
     const handleSubmit = async (e) => {
       e.preventDefault();
       await dispatch(login(email, password));
-      history.push("/");
+      // history.push("/");
     }
 
     const handleDemoSubmit = async (e) => {
@@ -73,17 +73,26 @@ function LoginPage() {
         <NavBar/>
         <Container>
             <ThemeProvider theme={theme}>
+
+                
+
+                <div className="errors-container">
+                  <ul className="errors" id="errors"></ul>
+                </div>
                 <form id="login-form" onSubmit={handleSubmit}>
+
                         <div className="buttonDiv">
                         <div><label>Email</label></div>
                         <Input className='signup' id="outlined-basic" variant="outlined" onChange = {e => setEmail(e.target.value)}/>
                         </div>
                         <div className="buttonDiv">
                         <div><label>Password</label></div>
-                        <Input type='password' className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
+                       <Input type='password' className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
+
+
                         </div>
                         <div className="buttonDiv">
-                        <Button type="submit" classes={classes} variant="contained" disableElevation>
+                        <Button type="submit" classes={classes} variant="contained" disableElevation onClick={handleDemoSubmit}>
                             Log in
                         </Button>
                         </div>

@@ -32,6 +32,19 @@ export const login = (email, password) => {
       });
 
       res.data = await res.json();
+
+      // error handling
+      const { message } = res.data;
+      console.log("this is the error message", message)
+      const errorsList = document.getElementById("errors");
+      errorsList.innerHTML = '';
+      if (message) {
+        errorsList.style.display = "flex";
+        const errorLi = document.createElement('li');
+        errorLi.innerHTML = message;
+        errorsList.appendChild(errorLi)
+      }
+
       if (res.ok) {
         dispatch(setUser(res.data))
       }
@@ -63,6 +76,20 @@ export const signup = (email, username, password) => {
         body: JSON.stringify({ email, username, password })
       });
       const data = await res.json();
+
+      //error handling
+
+      const { message } = data;
+      console.log("this is the error message", message)
+      const errorsList = document.getElementById("sign-up-errors");
+      errorsList.innerHTML = '';
+      if (message) {
+        errorsList.style.display = "flex";
+        const errorLi = document.createElement('li');
+        errorLi.innerHTML = message;
+        errorsList.appendChild(errorLi)
+      }
+
       dispatch(setUser(data));
       res.data = data;
       return res;
