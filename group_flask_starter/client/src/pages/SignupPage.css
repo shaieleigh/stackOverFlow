@@ -1,3 +1,7 @@
+html, body {
+  background-color: transparent !important;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -9,34 +13,70 @@ form {
   display: flex;
   justify-content: center;
   align-items: baseline;
+  width: 100%;
+
+}
+
+/* .MuiInputBase-input, .MuiOutlinedInput-input {
+  width: 5000px;
+} */
+
+.MuiInputBase-root {
+  height: 35px;
+  width: 90%;
 }
 
 .box {
-    width: 80%;
+    width: 100%;
     padding: 20px;
-    height: 65%;
+    height: 100%;
 
   }
 
 .signUpDiv {
     position: absolute;
-    left: 60%;
-    top: 10%;
     bottom: 10%;
+    right: 15%;
     border: 1px solid lightgrey;
-    width: 25%;
-    height: 55%;
+    max-width: 24rem;
+    width: 15rem;
+    height: 75%;
     display: flex;
     justify-content: center;
+    box-shadow: 2px 0px 30px rgb(190, 190, 190);
+    border-radius: 10px;
 }
 
 label {
-    font: 15px Arial, "Helvetica Neue";
-    font-weight: bold;
-    padding: 0px 2px;
+  font: 15px Arial, "Helvetica Neue";
+  font-weight: bold;
+  padding: 10px 2px 20px 2px;
+  width: 100%;
 }
 
 .buttonDiv {
   padding: 10px 0px 10px 0px;
-  margin: 0;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.signUpLabel {
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* .signup {
+  margin-left: 10px
+} */
+
+.signUpButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* margin-bottom: 0px;
+  margin-top: 80%; */
 }
