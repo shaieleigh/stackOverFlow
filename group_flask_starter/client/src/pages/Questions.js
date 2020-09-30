@@ -3,6 +3,7 @@ import { fetchQuestions } from '../store/question';
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import QuestionLi from '../components/QuestionLi';
+import NavBar from '../components/NavBar';
 
 
 export default function Questions() {
@@ -14,11 +15,14 @@ export default function Questions() {
 
     return (
         <>
-        <ul id ="questions">
-          {Object.values(questions).map(question =>(
-            <QuestionLi key={question.id} question={question}/>
-          ))}
-        </ul>
+        <NavBar/>
+        <div className="questioncolumn">
+            <ul id ="questionlist">
+            {Object.values(questions).map(question =>(
+                <QuestionLi key={question.id} question={question}/>
+            ))}
+            </ul>
+        </div>
         </>
     )
 }

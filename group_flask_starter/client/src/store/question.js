@@ -11,10 +11,9 @@ const receivePosts = (questions) => {
   export const fetchQuestions = () => {
     return async (dispatch) => {
       const res = await fetch(`/api/questions`);
-      debugger
+
       const data = await res.json();
-      debugger
-      console.log(data.questions)
+
       dispatch(receivePosts(data.questions));
 
     };
