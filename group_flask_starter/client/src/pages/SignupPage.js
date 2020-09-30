@@ -67,7 +67,7 @@ function SignupPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await dispatch(signup( email, password, username ));
-        history.push("/");
+        //history.push("/");
     }
 
     if (currentUserId) return <Redirect to="/" />;
@@ -78,6 +78,9 @@ function SignupPage() {
         <div className='signUpDiv'>
           <Box className="box">
               <ThemeProvider theme={theme}>
+                <div className="errors-container">
+                  <ul className="errors" id="sign-up-errors"></ul>
+                </div>
                 <form onSubmit={handleSubmit}>
                   <div className="buttonDiv">
                     <div className='signUpLabel'><label>Display name</label></div>
