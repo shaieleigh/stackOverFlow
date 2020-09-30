@@ -1,11 +1,14 @@
 .qitem {
     width: 60%;
-    border: 1px solid grey;
+    border-bottom: 1px solid lightgrey;
 }
 
 .qgrid {
     position: absolute;
     left: 20%;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+
 
 }
 
@@ -13,6 +16,7 @@
     width: 60%;
     display: flex;
     justify-content: flex-start;
+    border-bottom: 1px solid lightgray;
 }
 
 #headertext {

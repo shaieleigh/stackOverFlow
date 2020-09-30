@@ -16,9 +16,10 @@
     font: 16px Arial;
     justify-self: left;
 }
-#quser {
+#qusername {
     grid-area: username;
     align-self: end;
+    font: 12px Arial #0077CC;
 }
 
 #votecount {
