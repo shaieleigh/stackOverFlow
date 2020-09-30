@@ -91,8 +91,12 @@ function SignupPage() {
                     <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setEmail(e.target.value)}/>
                   </div>
                   <div className="buttonDiv">
+
                     <div className='signUpLabel'><label>Password</label></div>
                     <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
+                    <div><label>Password</label></div>
+                  <TextField className='signup' id="outlined-basic" variant="outlined" type="password" onChange = {e => setPassword(e.target.value)}/>
+
                   </div>
                   <div className="signUpButton">
                     <Button type="submit" classes={classes} variant="contained" disableElevation>
