@@ -67,7 +67,7 @@ function SignupPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await dispatch(signup( email, password, username ));
-        history.push("/");
+        //history.push("/");
     }
 
     if (currentUserId) return <Redirect to="/" />;
@@ -80,6 +80,9 @@ function SignupPage() {
         <div className='signUpDiv'>
           <Box className="box">
               <ThemeProvider theme={theme}>
+                <div className="errors-container">
+                  <ul className="errors" id="sign-up-errors"></ul>
+                </div>
                 <form onSubmit={handleSubmit}>
                   <div className="buttonDiv">
                     <div className='signUpLabel'><label>Display name</label></div>
@@ -90,8 +93,12 @@ function SignupPage() {
                     <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setEmail(e.target.value)}/>
                   </div>
                   <div className="buttonDiv">
+
                     <div className='signUpLabel'><label>Password</label></div>
                     <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
+                    <div><label>Password</label></div>
+                  <TextField className='signup' id="outlined-basic" variant="outlined" type="password" onChange = {e => setPassword(e.target.value)}/>
+
                   </div>
                   <div className="signUpButton">
                     <Button type="submit" classes={classes} variant="contained" disableElevation>
