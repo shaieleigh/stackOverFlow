@@ -68,9 +68,9 @@ def signup():
 
     # if not username:
     #     return jsonify(message="Username required"), 400
-    # if not email:
+    # elif not email:
     #     return jsonify(message='Email required'), 400
-    # if not hashed_password: 
+    # elif not hashed_password: 
     #     return jsonify(message="Password required"), 400
 
 
