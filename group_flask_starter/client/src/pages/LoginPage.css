@@ -1,0 +1,13 @@
+#login-form {
+    margin: auto;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    width: 400px;
+}
+
+.buttonDiv {
+  padding: 15px 0px 15px 0px;
+  margin: 0;
+  width: 41.5%;
+}
