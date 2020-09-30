@@ -57,7 +57,7 @@ function LoginPage() {
     const handleSubmit = async (e) => {
       e.preventDefault();
       await dispatch(login(email, password));
-      // history.push("/");
+      history.push("/");
     }
 
     const handleDemoSubmit = async (e) => {

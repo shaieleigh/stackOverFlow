@@ -57,8 +57,8 @@ function SignupPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await dispatch(signup( email, password, username ));
-        //history.push("/");
+        await dispatch(signup(username, email, password ));
+        history.push("/");
     }
 
     if (currentUserId) return <Redirect to="/" />;
