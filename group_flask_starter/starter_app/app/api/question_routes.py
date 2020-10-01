@@ -18,3 +18,22 @@ def index():
       for i in range(0,len(value)):
         value[i]["username"] = usersdict2[value[i]["userId"]]
   return questionsdict
+
+@question_routes.route('/ask', methods=['POST'])
+def askQuestion():
+  data = request.get_json()
+
+  userId = data['userId']
+  body = data['body']
+
+  question = Question(
+        userId=userId,
+        body=body,
+  )
+
+  db.session.add(question)
+  db.session.commit()
+
+  question1 = question.to_dict()
+
+  return jsonify(question=question1), 200

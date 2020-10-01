@@ -71,7 +71,7 @@ def signup():
     #     return jsonify(message="Username required"), 400
     # elif not email:
     #     return jsonify(message='Email required'), 400
-    # elif not hashed_password: 
+    # elif not hashed_password:
     #     return jsonify(message="Password required"), 400
 
 
@@ -86,7 +86,7 @@ def signup():
     user1 = user.to_dict()
     auth_token = create_access_token(identity={"email": user.email})
     return jsonify(auth_token=auth_token, user=user1), 200
-    
+
 
     # except Exception:
     #     return jsonify(message="try failed"), 409
