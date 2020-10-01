@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
+import Cookies from "js-cookie";
 import NavBar from '../components/NavBar';
 import './QuestionForm.css'
 
@@ -19,7 +20,7 @@ function QuestionForm1() {
             },
             body: JSON.stringify({ title, body })
         });
-        <Redirect to='/questions' />
+        return <Redirect to='/questions' />
     }
 
     return (
