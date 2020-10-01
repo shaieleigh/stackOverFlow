@@ -18,7 +18,7 @@
 }
 #qusername {
     grid-area: username;
-    align-self: end;
+    align-self: center;
     font: 12px Arial;
     color: #0077CC;
 }
@@ -28,16 +28,22 @@
     font: 20px Arial;
 
     color: #6A737C;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px 10px 0px;
 }
 #anscount {
     grid-area: anscount;
     font: 20px Arial;
     color: #6A737C;
+    display: flex;
+    flex-direction: column;
 }
 #viewcount {
     grid-area: viewcount;
-    font: 20px Arial;
+    font: 11px Arial;
     color: #6A737C;
+    align-self: end;
 }
 #answer {
     grid-area: answer;
@@ -51,9 +57,15 @@
     align-self: start;
 }
 
-#tag1 {
+.tag {
     font: 12px Arial;
     color: #39739D;
-    background-color: #E1ECF4
+    background-color: #E1ECF4;
+    padding: 5px;
 
+}
+
+.countlabel {
+    font: 11px Arial;
+    color: #6A737C;
 }
