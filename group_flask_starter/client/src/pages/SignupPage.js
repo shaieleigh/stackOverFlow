@@ -61,16 +61,16 @@ function SignupPage() {
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
     const history = useHistory();
-    const currentUserId = useSelector(state => state.auth.id);
+    const currentUserToken = useSelector(state => state.auth.auth_token);
     const classes = useStyles()
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        await dispatch(signup(username, email, password ));
-        history.push("/");
+        dispatch(signup(username, email, password ));
+        
     }
 
-    if (currentUserId) return <Redirect to="/" />;
+    if (currentUserToken) return <Redirect to="/questions" />;
 
     return (
       <>

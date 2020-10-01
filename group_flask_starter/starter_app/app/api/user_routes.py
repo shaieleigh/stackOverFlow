@@ -83,8 +83,10 @@ def signup():
     db.session.add(user)
     db.session.commit()
 
+    user1 = user.to_dict()
     auth_token = create_access_token(identity={"email": user.email})
-    return jsonify(auth_token=auth_token), 200
+    return jsonify(auth_token=auth_token, user=user1), 200
+    
 
     # except Exception:
     #     return jsonify(message="try failed"), 409
