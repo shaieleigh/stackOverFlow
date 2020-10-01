@@ -87,34 +87,45 @@ function SignupPage() {
     return (
       <>
         <NavBar />
-        <div className='signUpDiv'>
-          <Box className="box">
-              <ThemeProvider theme={theme}>
-                <div className="errors-container">
-                  <ul className="errors" id="sign-up-errors"></ul>
-                </div>
-                <form onSubmit={handleSubmit}>
-                  <div className="buttonDiv">
-                    <div className='signUpLabel'><label>Display name</label></div>
-                    <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setUsername(e.target.value)} />
-                  </div>
-                  <div className="buttonDiv">
-                    <div className='signUpLabel'><label>Email</label></div>
-                    <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setEmail(e.target.value)}/>
-                  </div>
-                  <div className="buttonDiv">
-
-                  <div className='signUpLabel'><label>Password</label></div>
-                  <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
-                  </div>
-                  <div className="signUpButton">
-                    <Button type="submit" classes={classes} variant="contained" disableElevation>
-                      Sign Up
-                    </Button>
-                  </div>
-                </form>
-              </ThemeProvider>
-          </Box>
+        <div className='middleDiv'>
+          <div className='signUpBlurb'>
+            <h1 className='blurbHeading'>Join the Snack Overflow Community</h1>
+            <div>
+              <p className='signupP'><QuestionAnswerIcon />Get unstuck - ask a question</p>
+              <p className='signupP'>Check out privileges like voting and commenting</p>
+              <p className='signupP'>Search for answers to questions already asked</p>
+              <p className='signupP'>Earn reputation and badges</p>
+              <p className='little'>Use the Demo User Link here to tour around</p>
+            </div>
+          </div>
+          <div className='signUpDiv'>
+            <Box className="box">
+                <ThemeProvider theme={theme}>
+                  <form onSubmit={handleSubmit}>
+                    <div className="errors-container">
+                      <ul className="errors" id="sign-up-errors"></ul>
+                    </div>
+                    <div className="buttonDiv">
+                      <div className='signUpLabel'><label>Display name</label></div>
+                      <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setUsername(e.target.value)} />
+                    </div>
+                    <div className="buttonDiv">
+                      <div className='signUpLabel'><label>Email</label></div>
+                      <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setEmail(e.target.value)}/>
+                    </div>
+                    <div className="buttonDiv">
+                    <div className='signUpLabel'><label>Password</label></div>
+                    <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
+                    </div>
+                    <div className="signUpButton">
+                      <Button id='signupButtonButton' type="submit" classes={classes} variant="contained" disableElevation>
+                        Sign Up
+                      </Button>
+                    </div>
+                  </form>
+                </ThemeProvider>
+            </Box>
+          </div>
         </div>
       </>
     )
