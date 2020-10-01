@@ -1,0 +1,27 @@
+#form-container {
+    background-color: #EFF0F1;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#question-form {
+    width: 60%;
+    height: 70%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 0px 10px rgb(190, 190, 190);
+    margin-bottom: 70px;
+}
+
+.input-question-form {
+    padding: 10px;
+    margin: 20px 40px;
+}
+
+.title-divs {
+    margin-left: 40px;
+    margin-top: 2%;
+}
