@@ -1,0 +1,29 @@
+.qitem {
+    width: 60%;
+    border-bottom: 1px solid lightgrey;
+    padding: 20px;
+}
+
+.MuiGrid-container {
+    width: 60%;
+}
+.qgrid {
+    position: absolute;
+    left: 20%;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+
+
+}
+
+.header {
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid lightgray;
+}
+
+#headertext {
+    padding: 50px 0px 50px 80px;
+    font: 22px Arial;
+}
