@@ -80,7 +80,7 @@ function SignupPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(signup(username, email, password ));
-        
+
     }
 
     if (currentUserToken) return <Redirect to="/questions" />;
