@@ -49,24 +49,24 @@ const theme = createMuiTheme({
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const currentUserId = useSelector(state => state.auth.id);
+    const currentUserToken = useSelector(state => state.auth.auth_token);
     const dispatch = useDispatch();
     const history = useHistory();
     const classes = useStyles();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
       e.preventDefault();
-      await dispatch(login(email, password));
-      // history.push("/");
+      dispatch(login(email, password));
+     // history.push("/");
     }
 
-    const handleDemoSubmit = async (e) => {
+    const handleDemoSubmit = (e) => {
         e.preventDefault();
-        await dispatch(login("demo@example.com", "password"));
-        history.push("/");
-      }
+        dispatch(login("ian@aa.io", "password"));
+        //history.push("/");
+    }
 
-      if (currentUserId) return <Redirect to="/dashboard" />;
+    if (currentUserToken) return <Redirect to="/questions" />;
 
     return (
       <>
@@ -92,12 +92,12 @@ function LoginPage() {
 
                         </div>
                         <div className="buttonDiv">
-                        <Button type="submit" classes={classes} variant="contained" disableElevation onClick={handleDemoSubmit}>
+                        <Button type="submit" classes={classes} variant="contained" disableElevation >
                             Log in
                         </Button>
                         </div>
                         <div>
-                            <Button type="submit" classes={classes} variant="contained" disableElevation>Log in as demo user</Button>
+                <Button type="submit" classes={classes} variant="contained" disableElevation onClick={handleDemoSubmit}>Log in as demo user</Button>
                         </div>
                 </form>
             </ThemeProvider>

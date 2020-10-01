@@ -1,0 +1,35 @@
+.qitem {
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+    padding: 20px;
+}
+
+.qgrid {
+    position: absolute;
+    left: 15%;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+
+
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid lightgray;
+}
+
+#headertext {
+    padding: 50px 0px 30px 80px;
+    font: 22px Arial;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+#qcount {
+    font: 17px Arial;
+    padding-top: 20px;
+}

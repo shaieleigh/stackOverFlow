@@ -1,0 +1,71 @@
+.paper {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+          "votecount question question question question"
+          "anscount answer answer answer answer"
+          "viewcount space space space username";
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+#qbody {
+    grid-area: question;
+    color: blue;
+    font: 16px Arial;
+    justify-self: left;
+}
+#qusername {
+    grid-area: username;
+    align-self: center;
+    font: 12px Arial;
+    color: #0077CC;
+}
+
+#votecount {
+    grid-area: votecount;
+    font: 20px Arial;
+
+    color: #6A737C;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px 10px 0px;
+}
+#anscount {
+    grid-area: anscount;
+    font: 20px Arial;
+    color: #6A737C;
+    display: flex;
+    flex-direction: column;
+}
+#viewcount {
+    grid-area: viewcount;
+    font: 11px Arial;
+    color: #6A737C;
+    align-self: end;
+}
+#answer {
+    grid-area: answer;
+    font: 13px Arial;
+    justify-self: left;
+}
+
+#space {
+    grid-area: space;
+    justify-self: left;
+    align-self: start;
+}
+
+.tag {
+    font: 12px Arial;
+    color: #39739D;
+    background-color: #E1ECF4;
+    padding: 5px;
+
+}
+
+.countlabel {
+    font: 11px Arial;
+    color: #6A737C;
+}

@@ -8,7 +8,7 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import Box from '@material-ui/core/Box';
 import { TextField } from '@material-ui/core';
 import NavBar from '../components/NavBar'
-
+import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 import './SignupPage.css'
 
 const colors = {
@@ -23,7 +23,8 @@ const useStyles = makeStyles({
       backgroundColor: colors.background,
       "&:hover": {
         backgroundColor: colors.background
-      }
+      },
+
     },
 })
 
@@ -36,21 +37,32 @@ const theme = createMuiTheme({
         input: {
         //   background: "white",
           font: "15px Helvetica Neue",
-          padding: "5px",
+          padding: "10px",
           width: '100%'
         }
       },
       MuiButton: {
         root: {
-          margin: '100% 0 15px 0',
+          margin: '100% 0 0 0',
           height: '40px'
         },
         label: {
           textTransform: "none",
           font: "13px Roboto",
-
         },
-      }
+      },
+      // MuiButtonBase: {
+      //   root: {
+      //     height: '40px'
+      //   },
+      // },
+      // MuiTouchRipple: {
+      //   root: {
+      //     height: '50px',
+      //     padding: '20px'
+      //   },
+      // },
+
     },
   });
 
@@ -61,16 +73,16 @@ function SignupPage() {
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
     const history = useHistory();
-    const currentUserId = useSelector(state => state.auth.id);
+    const currentUserToken = useSelector(state => state.auth.auth_token);
     const classes = useStyles()
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        await dispatch(signup( email, password, username ));
-        //history.push("/");
+        dispatch(signup(username, email, password ));
+
     }
 
-    if (currentUserId) return <Redirect to="/" />;
+    if (currentUserToken) return <Redirect to="/questions" />;
 
     return (
       <>
@@ -92,11 +104,8 @@ function SignupPage() {
                   </div>
                   <div className="buttonDiv">
 
-                    <div className='signUpLabel'><label>Password</label></div>
-                    <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
-                    <div><label>Password</label></div>
-                  <TextField className='signup' id="outlined-basic" variant="outlined" type="password" onChange = {e => setPassword(e.target.value)}/>
-
+                  <div className='signUpLabel'><label>Password</label></div>
+                  <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
                   </div>
                   <div className="signUpButton">
                     <Button type="submit" classes={classes} variant="contained" disableElevation>
