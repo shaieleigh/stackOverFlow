@@ -29,6 +29,9 @@ const useStyles = makeStyles({
 const theme = createMuiTheme({
     overrides: {
       MuiInputBase: {
+        root: {
+          width: '100%'
+        },
         input: {
         //   background: "white",
           font: "15px Helvetica Neue",
@@ -73,33 +76,36 @@ function LoginPage() {
         <NavBar/>
         <Container>
             <ThemeProvider theme={theme}>
+              <div className="errors-container">
+                <ul className="errors" id="errors"></ul>
+              </div>
+              <form id="login-form" onSubmit={handleSubmit}>
 
-                
-
-                <div className="errors-container">
-                  <ul className="errors" id="errors"></ul>
+                {/* <div className="buttonDiv">
+                <div><label>Email</label></div>
+                <Input className='signup' id="outlined-basic" variant="outlined" onChange = {e => setEmail(e.target.value)}/>
+                </div> */}
+                <div className="buttonDiv">
+                  <div className='signUpLabel'><label>Email</label></div>
+                  <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setEmail(e.target.value)}/>
                 </div>
-                <form id="login-form" onSubmit={handleSubmit}>
-
-                        <div className="buttonDiv">
-                        <div><label>Email</label></div>
-                        <Input className='signup' id="outlined-basic" variant="outlined" onChange = {e => setEmail(e.target.value)}/>
-                        </div>
-                        <div className="buttonDiv">
-                        <div><label>Password</label></div>
-                       <Input type='password' className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
-
-
-                        </div>
-                        <div className="buttonDiv">
-                        <Button type="submit" classes={classes} variant="contained" disableElevation >
-                            Log in
-                        </Button>
-                        </div>
-                        <div>
-                <Button type="submit" classes={classes} variant="contained" disableElevation onClick={handleDemoSubmit}>Log in as demo user</Button>
-                        </div>
-                </form>
+                {/* <div className="buttonDiv">
+                  <div><label>Password</label></div>
+                  <Input type='password' className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
+                </div> */}
+                <div className="buttonDiv">
+                    <div className='signUpLabel'><label>Password</label></div>
+                    <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
+                </div>
+                <div className="buttonDiv">
+                  <Button type="submit" classes={classes} variant="contained" disableElevation >
+                    Log in
+                  </Button>
+                </div>
+                <div>
+                  <Button type="submit" classes={classes} variant="contained" disableElevation onClick={handleDemoSubmit}>Log in as demo user</Button>
+                </div>
+              </form>
             </ThemeProvider>
         </Container>
       </>
