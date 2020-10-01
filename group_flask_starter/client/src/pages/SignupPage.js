@@ -43,8 +43,9 @@ const theme = createMuiTheme({
       },
       MuiButton: {
         root: {
-          margin: '100% 0 0 0',
-          height: '40px'
+          margin: '0 0 0 0',
+          height: '40px',
+          // justifyItem: 'end'
         },
         label: {
           textTransform: "none",
