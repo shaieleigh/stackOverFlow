@@ -30,16 +30,25 @@ const useStyles = makeStyles({
 const theme = createMuiTheme({
     overrides: {
       MuiInputBase: {
+        root: {
+          width: '100%'
+        },
         input: {
         //   background: "white",
           font: "15px Helvetica Neue",
           padding: "5px",
+          width: '100%'
         }
       },
       MuiButton: {
+        root: {
+          margin: '100% 0 15px 0',
+          height: '40px'
+        },
         label: {
           textTransform: "none",
           font: "13px Roboto",
+
         },
       }
     },
@@ -57,8 +66,8 @@ function SignupPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await dispatch(signup( email, password, username ));
-        //history.push("/");
+        await dispatch(signup(username, email, password ));
+        history.push("/");
     }
 
     if (currentUserId) return <Redirect to="/" />;
@@ -74,18 +83,22 @@ function SignupPage() {
                 </div>
                 <form onSubmit={handleSubmit}>
                   <div className="buttonDiv">
-                    <div><label>Display name</label></div>
+                    <div className='signUpLabel'><label>Display name</label></div>
                     <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setUsername(e.target.value)} />
                   </div>
                   <div className="buttonDiv">
-                    <div><label>Email</label></div>.
+                    <div className='signUpLabel'><label>Email</label></div>
                     <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setEmail(e.target.value)}/>
                   </div>
                   <div className="buttonDiv">
+
+                    <div className='signUpLabel'><label>Password</label></div>
+                    <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
                     <div><label>Password</label></div>
                   <TextField className='signup' id="outlined-basic" variant="outlined" type="password" onChange = {e => setPassword(e.target.value)}/>
+
                   </div>
-                  <div className="buttonDiv">
+                  <div className="signUpButton">
                     <Button type="submit" classes={classes} variant="contained" disableElevation>
                       Sign Up
                     </Button>
