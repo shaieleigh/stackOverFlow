@@ -1,15 +1,16 @@
 #form-container {
     background-color: #EFF0F1;
     width: 100vw;
-    height: 100vh;
+    height: 93vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 #question-form {
     width: 60%;
-    height: 70%;
+    height: 72%;
     background-color: white;
     border-radius: 5px;
     box-shadow: 2px 0px 10px rgb(190, 190, 190);
@@ -18,10 +19,26 @@
 
 .input-question-form {
     padding: 10px;
-    margin: 20px 40px;
+    margin: 0 40px 15px 40px;
+    border: 1.5px solid #d3d3d3;
+    border-radius: 7px;
 }
 
 .title-divs {
     margin-left: 40px;
     margin-top: 2%;
+}
+
+.question-form-button {
+    width: 11%;
+    height: 5%;
+    background-color: #0095f6;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    margin-top: 0;
+}
+
+::placeholder {
+    color: #BBC0C4;
 }
