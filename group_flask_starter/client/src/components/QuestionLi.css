@@ -19,7 +19,8 @@
 #qusername {
     grid-area: username;
     align-self: end;
-    font: 12px Arial #0077CC;
+    font: 12px Arial;
+    color: #0077CC;
 }
 
 #votecount {

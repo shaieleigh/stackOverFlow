@@ -1,8 +1,12 @@
 .qitem {
     width: 60%;
     border-bottom: 1px solid lightgrey;
+    padding: 20px;
 }
 
+.MuiGrid-container {
+    width: 60%;
+}
 .qgrid {
     position: absolute;
     left: 20%;
