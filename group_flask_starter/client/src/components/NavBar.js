@@ -1,24 +1,24 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+// import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
+// import MoreIcon from '@material-ui/icons/MoreVert';
 import './NavBar.css';
 import StackLogo from './StackLogo'
-import { Redirect } from "react-router-dom";
-import { Button } from '@material-ui/core';
+import { Redirect, NavLink } from "react-router-dom";
+// import { Button } from '@material-ui/core';
 import { login } from '../store/auth';
 
 
@@ -102,12 +102,11 @@ export default function NavBar() {
   const handleDemoSubmit = (e) => {
         e.preventDefault();
         dispatch(login("ian@aa.io", "password"));
-        //history.push("/");
     }
 
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  // const handleProfileMenuOpen = (event) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -118,15 +117,11 @@ export default function NavBar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
+  // const handleMobileMenuOpen = (event) => {
+  //   setMobileMoreAnchorEl(event.currentTarget);
+  // };
 
-  const handleLoginButton = (event) => {
-    return (
-      <Redirect to='/login' />
-    )
-  }
+  
 
   const handleSignUpButton = event => {
     return (
@@ -208,8 +203,9 @@ export default function NavBar() {
             />
           </div>
           <div className={classes.grow} />
-          <button id='navbarLogin' onClick={handleDemoSubmit}>Log in</button>
-          <button id='navbarSignup' onClick={handleSignUpButton}>Sign up</button>
+          <button id='navbarLogin'><NavLink to='/login'>Log In</NavLink></button>
+          <button id='navbarLogin' onClick={handleDemoSubmit}>Demo Log In</button>
+          <button id='navbarSignup' onClick={handleSignUpButton}><NavLink to='/signup'>Sign up</NavLink></button>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

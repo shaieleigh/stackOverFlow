@@ -11,9 +11,6 @@ function QuestionForm() {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [tags, setTags] = useState('');
-    const userId = useSelector(state => state.auth.user.id);
-    const history = useHistory();
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         await fetch('/api/questions/ask', {
