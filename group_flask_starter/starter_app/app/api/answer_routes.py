@@ -23,6 +23,8 @@ def answerOne(questionId):
 def answer(questionId):
   data = request.get_json()
 
+  answer1 = questionId
+  
   userId = data['userId']
   questionId = data['questionId']
   body = data['body']
@@ -30,7 +32,7 @@ def answer(questionId):
 
   answer = Answer(
         userId=userId,
-        questionId=questionId,
+        questionId=answer1,
         body=body,
         voteCount=voteCount
   )
