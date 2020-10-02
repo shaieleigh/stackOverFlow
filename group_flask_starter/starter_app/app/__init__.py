@@ -6,9 +6,10 @@ from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
 from flask_login import LoginManager
 
-from .models import db, User, Question
+from .models import db, User, Question, Answer
 from .api.user_routes import user_routes
 from .api.question_routes import question_routes
+from .api.answer_routes import answer_routes
 
 from .config import Config
 
@@ -17,6 +18,8 @@ app = Flask(__name__)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(question_routes, url_prefix='/api/questions')
+app.register_blueprint(answer_routes, url_prefix='/api/answers')
+
 db.init_app(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
