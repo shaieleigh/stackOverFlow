@@ -36,12 +36,14 @@ export const login = (email, password) => {
       // error handling
       const { message } = res.data;
 
+      if (message){
+
         console.log("this is the error message", message)
         const errorsList = document.getElementById("errors");
-      if(errorsList) {
-        errorsList.innerHTML = '';
-      }
-      if (message) {
+        if(errorsList) {
+          errorsList.innerHTML = '';
+        }
+    
         errorsList.style.display = "flex";
         const errorLi = document.createElement('li');
         errorLi.innerHTML = message;
