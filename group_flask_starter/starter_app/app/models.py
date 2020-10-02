@@ -25,6 +25,7 @@ class Question(db.Model):
   __tablename__ = 'questions'
 
   id = db.Column(db.Integer, primary_key = True)
+  title = db.Column(db.String(200), nullable=False)
   userId = db.Column(db.Integer, db.ForeignKey('users.id'),
         nullable=False)
   body = db.Column(db.String(2000), nullable= False)
@@ -34,6 +35,7 @@ class Question(db.Model):
   def to_dict(self):
     return {
       "id": self.id,
+      "title": self.title,
       "userId": self.userId,
       "body": self.body,
       "date_created": self.date_created
@@ -44,7 +46,7 @@ class Answer(db.Model):
 
   id = db.Column(db.Integer, primary_key = True)
   userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-  questionId = db.Column(db.Integer, db.ForeignKey('questions.id'), nullable=False)      
+  questionId = db.Column(db.Integer, db.ForeignKey('questions.id'), nullable=False)
   body = db.Column(db.String(2000), nullable= False)
   voteCount = db.Column(db.Integer, nullable= True )
   date_answered = db.Column(db.DateTime, default=datetime.now())

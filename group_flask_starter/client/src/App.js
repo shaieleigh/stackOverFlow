@@ -11,22 +11,22 @@ import { CssBaseline } from '@material-ui/core';
 
 function App() {
 
-    // const [loading, setLoading] = useState(true);
-    // const dispatch = useDispatch();
+    const [loading, setLoading] = useState(true);
+    const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //   const loadUser = async () => {
-    //     const res = await fetch("/api/session");
-    //     if (res.ok) {
-    //       res.data = await res.json();
-    //       dispatch(setUser(res.data.user))
-    //     }
-    //     setLoading(false);
-    //   }
-    //   loadUser();
-    // }, [dispatch]);
+    useEffect(() => {
+      const loadUser = async () => {
+        const res = await fetch("/api/user");
+        if (res.ok) {
+          res.data = await res.json();
+          dispatch(setUser(res.data.user))
+        }
+        setLoading(false);
+      }
+      loadUser();
+    }, [dispatch]);
 
-    // if (loading) return null;
+    if (loading) return null;
 
     return (
         <>
