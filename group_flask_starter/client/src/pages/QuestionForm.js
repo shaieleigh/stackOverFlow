@@ -11,6 +11,7 @@ function QuestionForm() {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [tags, setTags] = useState('');
+    const history = useHistory()
     const handleSubmit = async (e) => {
         e.preventDefault();
         await fetch('/api/questions/ask', {
@@ -19,7 +20,7 @@ function QuestionForm() {
                 "Content-Type": "application/json",
                 "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
             },
-            body: JSON.stringify({ title, userId, body })
+            body: JSON.stringify({ title, body })
         });
         history.push('/questions');
     }
