@@ -18,6 +18,7 @@
     display: flex;
     justify-content: flex-start;
     border-bottom: 1px solid lightgray;
+    flex-direction: column;
 }
 
 #headertext {
@@ -26,7 +27,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
+    flex: 1;
 }
 
 #qcount {
@@ -55,4 +56,21 @@
 #pub {
     font-size: 11px;
     padding-left: 10px;
+}
+
+.ask-button {
+    text-decoration: none;
+    border: none;
+    background-color: #0095F6;
+    border-radius: 4px;
+    color: white;
+    height: 35px;
+    width: 14%;
+    margin: 5%;
+}
+
+#headergroup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

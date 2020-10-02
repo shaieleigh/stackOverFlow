@@ -50,7 +50,9 @@ export default function Questions() {
                         <span id="qcount">{countfunc() + " questions"}</span>
 
                       </span>
-                      <NavLink to="/questions/ask">Ask</NavLink>
+                      <button className="ask-button">
+                      <NavLink className="ask-button" to="/questions/ask">Ask A Question</NavLink>
+                      </button>
 
 
                     </div>
