@@ -17,9 +17,9 @@ function QuestionLi({ question }) {
               <span className="countlabel">answers</span>
             </span>
             <span id="viewcount">0 views</span>
-            <span id="answer"> This will be the answer...</span>
+            <span id="answer"> {question.body}</span>
             <span id="qbody">
-                {question.body}
+                {question.title}
             </span>
             <span id="qusername">
                 {question.username}

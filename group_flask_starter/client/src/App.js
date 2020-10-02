@@ -20,7 +20,7 @@ function App() {
         const res = await fetch("/api/users/session");
         if (res.ok) {
           res.data = await res.json();
-          dispatch(setUser(res.data.user))
+          dispatch(setUser(res.data))
         }
         setLoading(false);
       }

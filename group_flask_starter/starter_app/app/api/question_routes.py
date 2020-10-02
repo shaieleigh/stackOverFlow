@@ -23,10 +23,12 @@ def index():
 def askQuestion():
   data = request.get_json()
 
+  title = data["title"]
   userId = data['userId']
   body = data['body']
 
   question = Question(
+        title=title,
         userId=userId,
         body=body,
   )

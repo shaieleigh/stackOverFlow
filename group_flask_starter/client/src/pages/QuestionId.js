@@ -95,7 +95,7 @@ export default function QuestionId() {
                 <span id="stack">
                     <PublicIcon/>
                     <span>
-                        Stack Overflow
+                        Snack Overflow
                     </span>
                 </span>
             </div>
