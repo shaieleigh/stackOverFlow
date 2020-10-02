@@ -3,8 +3,10 @@ import { Redirect } from 'react-router-dom';
 import Cookies from "js-cookie";
 import NavBar from '../components/NavBar';
 import './QuestionForm.css'
+import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-function QuestionForm1() {
+function QuestionForm() {
 
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
@@ -17,9 +19,9 @@ function QuestionForm1() {
                 "Content-Type": "application/json",
                 "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
             },
-            body: JSON.stringify({ title, body })
+            body: JSON.stringify({ title, userId, body })
         });
-        return <Redirect to='/questions' />
+        history.push('/questions');
     }
 
     return (
@@ -40,4 +42,4 @@ function QuestionForm1() {
     )
 }
 
-export default QuestionForm1
+export default QuestionForm
