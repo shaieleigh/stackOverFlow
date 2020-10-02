@@ -1,6 +1,6 @@
 import React, { useEffect} from 'react';
 import { fetchQuestions } from '../store/question';
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import QuestionLi from '../components/QuestionLi';
 import NavBar from '../components/NavBar';

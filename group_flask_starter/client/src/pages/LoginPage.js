@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { login } from '../store/auth';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { Container } from '@material-ui/core';
-import { TextField, Input } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 import NavBar from '../components/NavBar';
 import './LoginPage.css'
 
@@ -54,7 +54,7 @@ function LoginPage() {
     const [password, setPassword] = useState('');
     const currentUserToken = useSelector(state => state.auth.auth_token);
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
     const classes = useStyles();
 
     const handleSubmit = (e) => {

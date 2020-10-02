@@ -9,6 +9,8 @@
     width: 300px;
     border: 1px solid lightgrey;
     padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 0px 30px rgb(190, 190, 190);
 }
 
 /* .buttonDiv {
