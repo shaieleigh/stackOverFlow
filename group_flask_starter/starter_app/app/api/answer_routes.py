@@ -19,7 +19,7 @@ def answerOne(questionId):
     return {"answers": [answer.to_dict() for answer in response]}
   
 
-@answer_routes.route('/api/questions/<questionId>/answers', methods=['POST'])
+@answer_routes.route('/<int:questionId>', methods=['POST'])
 def answer(questionId):
   data = request.get_json()
 
