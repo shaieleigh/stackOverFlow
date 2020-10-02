@@ -7,6 +7,7 @@ import NavBar from '../components/NavBar';
 import { Grid } from '@material-ui/core';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import './Questions.css'
+import { NavLink } from 'react-router-dom'
 
 const theme = createMuiTheme({
     overrides: {
@@ -48,6 +49,8 @@ export default function Questions() {
                         <span id="qcount">{countfunc() + " questions"}</span>
 
                       </span>
+                      <NavLink to="/questions/ask">Ask</NavLink>
+
 
                     </div>
 
