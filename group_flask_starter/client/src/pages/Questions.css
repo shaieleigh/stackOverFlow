@@ -33,3 +33,26 @@
     font: 17px Arial;
     padding-top: 20px;
 }
+
+#nav {
+    padding: 40px 0px 0px 50px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#stack {
+    background-color: whitesmoke;
+    width: 12%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: bold;
+    border-right: 5px solid orange;
+}
+
+#pub {
+    font-size: 11px;
+    padding-left: 10px;
+}

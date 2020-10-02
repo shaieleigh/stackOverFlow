@@ -8,6 +8,7 @@ import { Grid } from '@material-ui/core';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import './Questions.css'
 import { NavLink } from 'react-router-dom'
+import PublicIcon from '@material-ui/icons/Public';
 
 const theme = createMuiTheme({
     overrides: {
@@ -62,6 +63,17 @@ export default function Questions() {
                 ))}
             </Grid>
             </ThemeProvider>
+        </div>
+        <div id="nav">
+                <span id="pub">
+                    PUBLIC
+                </span>
+                <span id="stack">
+                    <PublicIcon/>
+                    <span>
+                        Snack Overflow
+                    </span>
+                </span>
         </div>
         </>
     )
