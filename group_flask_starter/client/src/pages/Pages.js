@@ -11,6 +11,7 @@ import LoginPage from './LoginPage';
 import Questions from './Questions';
 
 import QuestionId from './QuestionId'
+import QuestionForm from './QuestionForm';
 
 
 export default function Pages() {
@@ -20,6 +21,7 @@ export default function Pages() {
       <Route path="/login" component={LoginPage} />
       <Route exact path="/questions" component={Questions} />
       <Route path="/questions/:id" component={QuestionId} />
+      <Route exact path="/questions/ask" component={QuestionForm} ex />
     </>
   )
 }

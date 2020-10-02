@@ -5,21 +5,19 @@ html, body {
 form {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: space-around;
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 .MuiBox-root {
   display: flex;
-  justify-content: center;
-  align-items: baseline;
+  /* justify-content: center; */
+  /* align-items: baseline; */
   width: 100%;
 }
 
-/* .MuiInputBase-input, .MuiOutlinedInput-input {
-  width: 5000px;
-} */
 
 .MuiInputBase-root {
   height: 40px;
@@ -66,17 +64,16 @@ label {
   display: block;
 }
 
-/* .signup {
-  margin-left: 10px
-} */
+
 
 .signUpButton {
   width: 100%;
-
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  position: relative;
+  top: 30px;
+  /* bottom: 500px; */
   margin-bottom: 0px;
+  margin-right: 0px;
+  padding-bottom: 0px;
 
 }
 
@@ -106,7 +103,6 @@ label {
 .signUpBlurb {
   height: 400px;
   width: 400px;
-  /* position: relative; */
   left: 15%;
   top: 30%;
   bottom: 20%;
@@ -124,8 +120,8 @@ label {
   display: flex;
   justify-content: center;
   top: 15%;
-  left: 10%;
-  right: 10%;
+  left: 15%;
+  right: 15%;
   bottom: 15%;
   align-items: center;
 }

@@ -43,8 +43,9 @@ const theme = createMuiTheme({
       },
       MuiButton: {
         root: {
-          margin: '100% 0 0 0',
-          height: '40px'
+          margin: '0 0 0 0',
+          height: '40px',
+          // justifyItem: 'end'
         },
         label: {
           textTransform: "none",
@@ -79,7 +80,7 @@ function SignupPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(signup(username, email, password ));
-        
+
     }
 
     if (currentUserToken) return <Redirect to="/questions" />;

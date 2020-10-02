@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -16,6 +17,11 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import './NavBar.css';
 import StackLogo from './StackLogo'
+import { Redirect } from "react-router-dom";
+import { Button } from '@material-ui/core';
+import { login } from '../store/auth';
+
+
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -87,9 +93,17 @@ export default function NavBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const dispatch = useDispatch();
+
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const handleDemoSubmit = (e) => {
+        e.preventDefault();
+        dispatch(login("ian@aa.io", "password"));
+        //history.push("/");
+    }
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -107,6 +121,18 @@ export default function NavBar() {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
+  const handleLoginButton = (event) => {
+    return (
+      <Redirect to='/login' />
+    )
+  }
+
+  const handleSignUpButton = event => {
+    return (
+      <Redirect to='/signup' />
+    )
+  }
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -151,17 +177,7 @@ export default function NavBar() {
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
+
     </Menu>
   );
 
@@ -192,17 +208,8 @@ export default function NavBar() {
             />
           </div>
           <div className={classes.grow} />
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </div>
+          <button id='navbarLogin' onClick={handleDemoSubmit}>Log in</button>
+          <button id='navbarSignup' onClick={handleSignUpButton}>Sign up</button>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
