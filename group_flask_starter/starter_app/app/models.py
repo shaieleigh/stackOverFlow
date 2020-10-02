@@ -11,6 +11,7 @@ class User(db.Model):
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.Binary(100), nullable=False)
   questions = db.relationship('Question', backref='users', lazy=True)
+  answers = db.relationship('Answer', backref='users', lazy=True)
 
 
   def to_dict(self):
@@ -28,6 +29,7 @@ class Question(db.Model):
         nullable=False)
   body = db.Column(db.String(2000), nullable= False)
   date_created = db.Column(db.DateTime, default=datetime.now())
+  answers = db.relationship('Answer', backref='questions', lazy=True)
 
   def to_dict(self):
     return {
@@ -35,4 +37,24 @@ class Question(db.Model):
       "userId": self.userId,
       "body": self.body,
       "date_created": self.date_created
+    }
+
+class Answer(db.Model):
+  __tablename__ = 'answers'
+
+  id = db.Column(db.Integer, primary_key = True)
+  userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+  questionId = db.Column(db.Integer, db.ForeignKey('questions.id'), nullable=False)      
+  body = db.Column(db.String(2000), nullable= False)
+  voteCount = db.Column(db.Integer, nullable= True )
+  date_answered = db.Column(db.DateTime, default=datetime.now())
+
+  def to_dict(self):
+    return {
+      "id": self.id,
+      "userId": self.userId,
+      "questionId": self.questionId,
+      "body": self.body,
+      "voteCount": self.voteCount,
+      "date_answered": self.date_answered
     }
