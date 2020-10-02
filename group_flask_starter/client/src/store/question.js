@@ -18,9 +18,7 @@ const receiveQuestion = (question) => {
 
   export const fetchQuestions = () => {
     return async (dispatch) => {
-      debugger
       const res = await fetch(`/api/questions`);
-      debugger
 
       const data = await res.json();
 
@@ -31,11 +29,8 @@ const receiveQuestion = (question) => {
 
   export const fetchQuestion = (id) => {
     return async (dispatch) => {
-      debugger
       const res = await fetch(`/api/questions/${id}`);
-      debugger
       const data = await res.json();
-      debugger
       dispatch(receiveQuestion(data.question))
 
     };

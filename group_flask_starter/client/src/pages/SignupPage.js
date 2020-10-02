@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { signup } from '../store/auth';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
@@ -73,7 +73,7 @@ function SignupPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
     const currentUserToken = useSelector(state => state.auth.auth_token);
     const classes = useStyles()
 

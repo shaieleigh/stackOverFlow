@@ -3,13 +3,14 @@ import { Redirect } from 'react-router-dom';
 import Cookies from "js-cookie";
 import NavBar from '../components/NavBar';
 import './QuestionForm.css'
+import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-function QuestionForm1() {
+function QuestionForm() {
 
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [tags, setTags] = useState('');
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         await fetch('/api/questions/ask', {
@@ -18,9 +19,9 @@ function QuestionForm1() {
                 "Content-Type": "application/json",
                 "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
             },
-            body: JSON.stringify({ title, body })
+            body: JSON.stringify({ title, userId, body })
         });
-        return <Redirect to='/questions' />
+        history.push('/questions');
     }
 
     return (
@@ -33,7 +34,7 @@ function QuestionForm1() {
                     <label className='title-divs'>Body</label>
                     <textarea className='input-question-form' rows='12' onChange={e => setBody(e.target.value)} />
                     <label className='title-divs'>Tags</label>
-                    <input className='input-question-form' placeholder='e.g. (python javascript)' onChange={e => setTags(e.target.value)} />
+                    <input key={tags} className='input-question-form' placeholder='e.g. (python javascript)' onChange={e => setTags(e.target.value)} />
                 </form>
                 <button type='submit' className='question-form-button' onClick={handleSubmit}>Ask this question</button>
             </div>
@@ -41,4 +42,4 @@ function QuestionForm1() {
     )
 }
 
-export default QuestionForm1
+export default QuestionForm
