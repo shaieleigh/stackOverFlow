@@ -34,7 +34,7 @@ function QuestionForm() {
                     <label className='title-divs'>Body</label>
                     <textarea className='input-question-form' rows='12' onChange={e => setBody(e.target.value)} />
                     <label className='title-divs'>Tags</label>
-                    <input className='input-question-form' placeholder='e.g. (python javascript)' onChange={e => setTags(e.target.value)} />
+                    <input key={tags} className='input-question-form' placeholder='e.g. (python javascript)' onChange={e => setTags(e.target.value)} />
                 </form>
                 <button type='submit' className='question-form-button' onClick={handleSubmit}>Ask this question</button>
             </div>

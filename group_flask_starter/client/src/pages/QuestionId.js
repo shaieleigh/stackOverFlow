@@ -58,9 +58,8 @@ export default function QuestionId() {
     useEffect(() => {
         debugger
         dispatch(fetchQuestion(id));
-      }, [dispatch]);
+      }, [dispatch, id]);
     const question = useSelector(state => state.questionReducer);
-
       return (
         <>
             <NavBar/>

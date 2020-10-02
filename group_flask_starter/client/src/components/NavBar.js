@@ -121,7 +121,7 @@ export default function NavBar() {
   //   setMobileMoreAnchorEl(event.currentTarget);
   // };
 
-  
+
 
   const handleSignUpButton = event => {
     return (
@@ -203,9 +203,9 @@ export default function NavBar() {
             />
           </div>
           <div className={classes.grow} />
-          <button id='navbarLogin'><NavLink to='/login'>Log In</NavLink></button>
+          <button id='navbarLogin'><NavLink id='navLinkBar' to='/login'>Log In</NavLink></button>
           <button id='navbarLogin' onClick={handleDemoSubmit}>Demo Log In</button>
-          <button id='navbarSignup' onClick={handleSignUpButton}><NavLink to='/signup'>Sign up</NavLink></button>
+          <button id='navbarSignup' onClick={handleSignUpButton}><NavLink id='navLinkBar' to='/signup'>Sign up</NavLink></button>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
