@@ -37,3 +37,13 @@ def askQuestion():
   question1 = question.to_dict()
 
   return jsonify(question=question1), 200
+
+@question_routes.route('/<qid>')
+def getspecific(qid):
+
+    question = Question.query.filter_by(id=qid).first()
+    questionsdict = question.to_dict()
+    user = User.query.filter_by(id=question.userId).first()
+    usersdict = user.to_dict()
+    questionsdict["username"] = usersdict["username"]
+    return jsonify(question=questionsdict), 200
