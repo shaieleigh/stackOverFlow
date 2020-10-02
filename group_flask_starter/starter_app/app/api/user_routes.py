@@ -1,6 +1,7 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, session
 from app.models import User, db
-from flask_jwt_extended import JWTManager, create_access_token
+from flask_jwt_extended import JWTManager, create_access_token, decode_token
+from flask_jwt_extended.tokens import decode_jwt
 from flask_login import logout_user
 import bcrypt
 
@@ -49,6 +50,7 @@ def login():
     else:
         auth_token = create_access_token(
             identity={"email": user.email})
+    session["user"] = user.to_dict()
     user1 = user.to_dict()
     return jsonify(auth_token=auth_token, user=user1), 200
 
@@ -95,3 +97,11 @@ def signup():
 def logout():
     logout_user()
     return 'Goodbye!'
+
+@user_routes.route("/session")
+def load_user():
+  if 'user' in session:
+    user = session['user']
+    return {"user": session['user']}, 200
+  else:
+    return {"msg": "user not loaded"}
