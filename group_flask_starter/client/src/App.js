@@ -1,9 +1,9 @@
-import React from 'react';
-// { useState, useEffect }
+import React, { useState, useEffect } from 'react';
+
 import { BrowserRouter } from 'react-router-dom';
 import Pages from './pages/Pages';
-// import { useDispatch } from 'react-redux';
-// import { setUser } from './store/auth';
+import { useDispatch } from 'react-redux';
+import { setUser } from './store/auth';
 import { CssBaseline } from '@material-ui/core';
 // import ThemeProvider from 'material-ui/styles/';
 
@@ -20,7 +20,7 @@ function App() {
         const res = await fetch("/api/users/session");
         if (res.ok) {
           res.data = await res.json();
-          dispatch(setUser(res.data.user))
+          dispatch(setUser(res.data))
         }
         setLoading(false);
       }
