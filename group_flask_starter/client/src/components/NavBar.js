@@ -186,7 +186,7 @@ export default function NavBar() {
             color="inherit"
             aria-label="open drawer"
           >
-            <MenuIcon />
+            {/* <MenuIcon /> hiding this bc it's inactive/not functional */}
           </IconButton>
           <StackLogo />
           <div className={classes.search}>
@@ -204,7 +204,7 @@ export default function NavBar() {
           </div>
           <div className={classes.grow} />
           <button id='navbarLogin'><NavLink id='navLinkBar' to='/login'>Log In</NavLink></button>
-          <button id='navbarLogin' onClick={handleDemoSubmit}>Demo Log In</button>
+          {/* <button id='navbarLogin' onClick={handleDemoSubmit}>Demo Log In</button> hiding bc not functioning*/}
           <button id='navbarSignup' onClick={handleSignUpButton}><NavLink id='navLinkBar' to='/signup'>Sign up</NavLink></button>
         </Toolbar>
       </AppBar>

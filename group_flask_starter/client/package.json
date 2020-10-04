@@ -40,7 +40,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://localhost:5000",
+  "proxy": "http://localhost:5000",
   "redux": {
     "version": "4.0.5",
     "resolved": "https://registry.npmjs.org/redux/-/redux-4.0.5.tgz",
