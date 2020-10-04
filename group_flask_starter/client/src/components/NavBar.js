@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -20,6 +20,7 @@ import StackLogo from './StackLogo'
 import { Redirect, NavLink } from "react-router-dom";
 // import { Button } from '@material-ui/core';
 import { login } from '../store/auth';
+import LogoutButton from '../components/LogoutButton';
 
 
 
@@ -93,6 +94,7 @@ export default function NavBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const currentUserToken = useSelector((state) => state.auth.auth_token);
   const dispatch = useDispatch();
 
 
@@ -203,9 +205,13 @@ export default function NavBar() {
             />
           </div>
           <div className={classes.grow} />
+          {currentUserToken ? <LogoutButton>Log Out</LogoutButton> : (
+          <>
           <button id='navbarLogin'><NavLink id='navLinkBar' to='/login'>Log In</NavLink></button>
           <button id='navbarLogin' onClick={handleDemoSubmit}>Demo Log In</button> 
           <button id='navbarSignup' onClick={handleSignUpButton}><NavLink id='navLinkBar' to='/signup'>Sign up</NavLink></button>
+          </>)}
+          
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

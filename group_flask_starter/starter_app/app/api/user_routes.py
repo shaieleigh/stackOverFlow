@@ -95,8 +95,12 @@ def signup():
 
 @user_routes.route("/logout", methods=["DELETE"])
 def logout():
-    logout_user()
-    return 'Goodbye!'
+    # logout_user()
+    # return 'Goodbye!'
+    if "userId" in session:
+        session.pop("userId", None)
+        return {'msg': 'Goodbye!'}
+    return "You are already logged out"
 
 @user_routes.route("/session")
 def load_user():

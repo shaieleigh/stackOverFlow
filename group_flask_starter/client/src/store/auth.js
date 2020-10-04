@@ -60,12 +60,15 @@ export const login = (email, password) => {
 
 export const logout = () => {
     return async (dispatch) => {
-      const res = await fetch('/api/users', {
+      const res = await fetch("/api/users/logout", {
         method: "delete",
       });
-      if (res.ok) dispatch(removeUser());
-      res.data = await res.json();
-      return res;
+      if(res.okay){
+        dispatch(removeUser());
+        return "goodbye"
+
+      }
+   
     };
 };
 
