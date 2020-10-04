@@ -12,7 +12,7 @@ function QuestionForm() {
     const [body, setBody] = useState('');
     const [tags, setTags] = useState('');
     const history = useHistory();
-    const userId = useSelector(state => state.auth.user.id);
+    const userId = useSelector(state => state.auth.user);
     const handleSubmit = async (e) => {
         e.preventDefault();
         await fetch('/api/questions/ask', {
@@ -32,7 +32,7 @@ function QuestionForm() {
             <div id='form-container'>
                 <form id='question-form'>
                     <label className='title-divs'>Title</label>
-                    <input className='input-question-form' placeholder='e.g. Is there an R function for finding the index of an element in a vector?' onChange={e => setTitle(e.target.value)} />
+                    <input className='input-question-form' placeholder='e.g. Is there a prize at the bottom of a Cracker Jack box?' onChange={e => setTitle(e.target.value)} />
                     <label className='title-divs'>Body</label>
                     <textarea className='input-question-form' rows='12' onChange={e => setBody(e.target.value)} />
                     <label className='title-divs'>Tags</label>
