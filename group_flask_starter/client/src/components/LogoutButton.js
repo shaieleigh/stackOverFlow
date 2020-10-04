@@ -6,9 +6,9 @@ import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const colors = {
-  text: "black",
-  background: "rgb(244, 241, 234)",
-  backgroundHover: "rgb(237, 230, 214)",
+  text: "white",
+  background: "rgb(0, 149, 246)",
+  backgroundHover: "rgb(228, 230, 232)",
 };
 
 const useStyles = makeStyles({
