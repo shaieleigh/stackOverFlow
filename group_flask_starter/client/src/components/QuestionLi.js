@@ -21,7 +21,7 @@ function QuestionLi({ question }) {
             <span id="answer"> {question.body} </span>
             <span id="qbody">
 
-                <NavLink to={`/questions/q/${question.id}`}>{question.title}</NavLink>
+                <NavLink to={`/questions/q/${question.id}`} id="linkz">{question.title}</NavLink>
             </span>
             <span id="qusername">
                 {question.username}
