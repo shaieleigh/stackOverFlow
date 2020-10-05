@@ -208,7 +208,7 @@ export default function NavBar() {
           {currentUserToken ? <LogoutButton>Log Out</LogoutButton> : (
           <>
           <button id='navbarLogin'><NavLink id='navLinkBar' to='/login'>Log In</NavLink></button>
-          <button id='navbarLogin' onClick={handleDemoSubmit}>Demo Log In</button> 
+          {/* <button id='navbarLogin' onClick={handleDemoSubmit}>Demo Log In</button>  */}
           <button id='navbarSignup' onClick={handleSignUpButton}><NavLink id='navLinkBar' to='/signup'>Sign up</NavLink></button>
           </>)}
           
