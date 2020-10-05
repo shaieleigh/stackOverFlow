@@ -36,8 +36,7 @@ export const login = (email, password) => {
       // error handling
       const { message } = res.data;
 
-        console.log("this is the error message", message)
-        const errorsList = document.getElementById("errors");
+      const errorsList = document.getElementById("errors");
       if(errorsList) {
         errorsList.innerHTML = '';
       }
