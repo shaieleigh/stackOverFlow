@@ -15,6 +15,7 @@
     color: blue;
     font: 16px Arial;
     justify-self: left;
+    text-decoration: none;
 }
 #qusername {
     grid-area: username;

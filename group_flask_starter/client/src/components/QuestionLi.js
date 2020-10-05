@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 // import { useSelector } from 'react-redux';
 // import { Paper } from "@material-ui/core";
 // import { makeStyles } from "@material-ui/core/styles";
@@ -17,9 +18,10 @@ function QuestionLi({ question }) {
               <span className="countlabel">answers</span>
             </span>
             <span id="viewcount">0 views</span>
-            <span id="answer"> {question.body}</span>
+            <span id="answer"> {question.body} </span>
             <span id="qbody">
-                {question.title}
+
+                <NavLink to={`/questions/q/${question.id}`}>{question.title}</NavLink>
             </span>
             <span id="qusername">
                 {question.username}
