@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { Redirect, Link } from 'react-router-dom';
 import { logout } from "../store/auth"
 import Cookies from "js-cookie";
 import { Button } from "@material-ui/core";
@@ -34,6 +35,8 @@ function LogoutButton(props) {
     const res = dispatch(logout());
     //debugger
     if (res.ok) Cookies.remove("token");
+    console.log("logoutbutton.js")
+    return <Redirect to="/" />
 
   };
 
