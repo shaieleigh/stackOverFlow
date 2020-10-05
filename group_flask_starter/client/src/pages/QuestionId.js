@@ -69,7 +69,7 @@ export default function QuestionId() {
             <Grid container align="center" direction="column" spacing={0} alignItems="stretch" className="qgrid1">
                 <Grid item className="header1">
                     <div id="headergroup1">
-                    <span id="headertext1">{question.body}
+                    <span id="headertext1">{question.title}
 
                     </span>
                     <Button classes={classes}><NavLink id="linkz2" to="/questions/ask">Ask A Question</NavLink></Button>
