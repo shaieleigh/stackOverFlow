@@ -11,6 +11,7 @@ import './QuestionId.css'
 import { Button } from '@material-ui/core';
 import NavBar from '../components/NavBar';
 import PublicIcon from '@material-ui/icons/Public';
+import { NavLink } from 'react-router-dom'
 
 
 const colors = {
@@ -71,7 +72,7 @@ export default function QuestionId() {
                     <span id="headertext1">{question.body}
 
                     </span>
-                    <Button classes={classes}>Ask Question</Button>
+                    <Button classes={classes}><NavLink id="linkz2" to="/questions/ask">Ask A Question</NavLink></Button>
 
 
                     </div>

@@ -15,6 +15,7 @@
     color: blue;
     font: 16px Arial;
     justify-self: left;
+
 }
 #qusername {
     grid-area: username;
@@ -49,6 +50,7 @@
     grid-area: answer;
     font: 13px Arial;
     justify-self: left;
+
 }
 
 #space {
@@ -68,4 +70,8 @@
 .countlabel {
     font: 11px Arial;
     color: #6A737C;
+}
+
+#linkz {
+    text-decoration: none;
 }
