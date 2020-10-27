@@ -72,9 +72,11 @@ export default function Questions() {
                 </span>
                 <span id="stack">
                     <PublicIcon/>
-                    <span>
+                    <NavLink id="smallsnack" to="/questions">
+                    <span id="smallsnack">
                         Snack Overflow
                     </span>
+                    </NavLink>
                 </span>
         </div>
         </>

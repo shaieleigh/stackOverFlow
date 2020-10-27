@@ -1,4 +1,4 @@
-.qbox {
+.abox {
     height: 100%;
     width: 100%;
     display: grid;
@@ -9,13 +9,13 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-#body {
+#body2 {
     grid-area: question;
     font: 16px Arial;
     justify-self: left;
     color: black;
 }
-#user {
+#user2 {
     grid-area: username;
     align-self: center;
     font: 12px Arial;
@@ -27,7 +27,7 @@
     align-items: center;
 }
 
-#votes {
+#votes2 {
     grid-area: votecount;
     font: 20px Arial;
 
@@ -38,21 +38,20 @@
     padding: 0px 0px 10px 0px;
 }
 
-#tagbox {
+#tagbox2 {
     grid-area: space;
     justify-self: left;
     align-self: start;
 }
 
-.tags {
+.tags2 {
     font: 12px Arial;
     color: #39739D;
     background-color: #E1ECF4;
     padding: 5px;
-    margin: 5px;
 
 }
 
-#arrow {
+#arrow2 {
     cursor: pointer;
 }

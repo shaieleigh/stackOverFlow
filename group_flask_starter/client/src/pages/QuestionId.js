@@ -1,8 +1,10 @@
 import React, { useEffect} from 'react';
 import { fetchQuestion } from '../store/question';
+import { fetchAnswers } from '../store/answer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 import QuestionDisplay from '../components/QuestionDisplay';
+import AnswerDisplay from '../components/AnswerDisplay';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
@@ -12,6 +14,7 @@ import { Button } from '@material-ui/core';
 import NavBar from '../components/NavBar';
 import PublicIcon from '@material-ui/icons/Public';
 import { NavLink } from 'react-router-dom'
+import AnswerForm from './AnswerForm'
 
 
 const colors = {
@@ -53,14 +56,52 @@ const theme = createMuiTheme({
 
 export default function QuestionId() {
     const classes = useStyles()
-
     let { id } = useParams();
+    console.log(id)
     const dispatch = useDispatch();
     useEffect(() => {
         debugger
         dispatch(fetchQuestion(id));
       }, [dispatch, id]);
+      useEffect(() => {
+        debugger
+        dispatch(fetchAnswers(id));
+      }, [dispatch, id]);
     const question = useSelector(state => state.questionReducer);
+    const answers = useSelector(state => state.answer);
+
+    const answerrender = () => {
+        if (answers) {
+            const list1 = []
+            for (let i = 0; i < answers.length; i++) {
+                list1.push(
+                <Grid key={answers[i].id} item className="aitem2">
+                    <AnswerDisplay key={answers[i].id} answer={answers[i]}/>
+                </Grid>
+                )
+            }
+            return list1;
+        } else {
+            return
+
+        }
+
+    }
+
+    let count = 0;
+    const countfunc = () => {
+        if (answers) {
+          Object.values(answers).forEach(answer => {
+            count ++
+          })
+          if (count > 0) {
+            return (<span id="acount">{count + " answers"}</span>);
+          }
+        }
+        return
+    }
+
+    console.log(question)
       return (
         <>
             <NavBar/>
@@ -72,7 +113,7 @@ export default function QuestionId() {
                     <span id="headertext1">{question.title}
 
                     </span>
-                    <Button classes={classes}><NavLink id="linkz2" to="/questions/ask">Ask A Question</NavLink></Button>
+                    <Button classes={classes}><NavLink id="linkz2" to="/questions/ask">Ask Question</NavLink></Button>
 
 
                     </div>
@@ -85,6 +126,16 @@ export default function QuestionId() {
                 <Grid key={question.id} item className="qitem1">
                     <QuestionDisplay key={question.id} question={question}/>
                 </Grid>
+                <Grid key={66} item className="aitem1">
+                    {countfunc()}
+                </Grid>
+                {answerrender()}
+                <Grid key={67} item className="aitem1">
+                    <span id="acount">Your Answer</span>
+                </Grid>
+                <Grid key={68} item className="qitem1">
+                    <AnswerForm questionId={question.id}/>
+                </Grid>
                 </Grid>
                 </ThemeProvider>
 
@@ -95,9 +146,11 @@ export default function QuestionId() {
                 </span>
                 <span id="stack">
                     <PublicIcon/>
-                    <span>
+                    <NavLink id="smallsnack" to="/questions">
+                    <span id="smallsnack">
                         Snack Overflow
                     </span>
+                    </NavLink>
                 </span>
             </div>
 

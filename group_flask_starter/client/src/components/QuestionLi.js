@@ -9,15 +9,28 @@ import './QuestionLi.css'
 
 
 function QuestionLi({ question }) {
+    const tagRender = () => {
+        const list1 = []
+        if (question.tags) {
+            for (let i=0; i<question.tags.length; i++) {
+                list1.push(
+                <span className="tags">
+                    {question.tags[i].name}
+                </span>
+                )
+            }
+        }
+        return list1
+    }
     return (
         <div className="paper">
-            <span id="votecount">0
+            <span id="votecount">{question.voteCount ? question.voteCount : 0}
               <span className="countlabel">votes</span>
             </span>
-            <span id="anscount">0
+            <span id="anscount">{question.answerCount ? question.answerCount : 0}
               <span className="countlabel">answers</span>
             </span>
-            <span id="viewcount">0 views</span>
+            <span id="viewcount">{Math.floor(Math.random() * 20)} views</span>
             <span id="answer"> {question.body} </span>
             <span id="qbody">
 
@@ -27,9 +40,7 @@ function QuestionLi({ question }) {
                 {question.username}
             </span>
             <span id="space">
-                <span className="tag">
-                    python
-                </span>
+                {tagRender()}
             </span>
         </div>
     )

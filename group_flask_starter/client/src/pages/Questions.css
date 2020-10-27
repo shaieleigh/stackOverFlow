@@ -51,6 +51,12 @@
     justify-content: space-around;
     font-weight: bold;
     border-right: 5px solid orange;
+    text-decoration: none;
+}
+
+#smallsnack {
+    text-decoration: none;
+    color: black;
 }
 
 #pub {
