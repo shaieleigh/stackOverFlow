@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from app.models import Question, db, User
+from app.models import Question, db, User, Tag
 from sqlalchemy import desc
 
 question_routes = Blueprint('questions', __name__)
@@ -17,6 +17,9 @@ def index():
   for value in questionsdict.values():
       for i in range(0,len(value)):
         value[i]["username"] = usersdict2[value[i]["userId"]]
+        tags = Tag.query.filter_by(questionId=value[i]["id"]).all()
+        tagdict = [tag.to_dict() for tag in tags]
+        value[i]["tags"] = tagdict
   return questionsdict
 
 @question_routes.route('/ask', methods=['POST'])
@@ -48,5 +51,8 @@ def getspecific(qid):
     questionsdict = question.to_dict()
     user = User.query.filter_by(id=question.userId).first()
     usersdict = user.to_dict()
+    tags = Tag.query.filter_by(questionId=qid).all()
+    tagdict = [tag.to_dict() for tag in tags]
     questionsdict["username"] = usersdict["username"]
+    questionsdict["tags"] = tagdict
     return jsonify(question=questionsdict), 200

@@ -11,7 +11,7 @@ class User(db.Model):
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.Binary(100), nullable=False)
   questions = db.relationship('Question', backref='users', lazy=True)
-  answers = db.relationship('Answer', backref='users', lazy=True)
+  answers = db.relationship('Answer', backref='users', primaryjoin="or_(User.id==Answer.userId, User.username==Answer.username)", lazy=True)
 
 
   def to_dict(self):
@@ -51,6 +51,7 @@ class Answer(db.Model):
 
   id = db.Column(db.Integer, primary_key = True)
   userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+  username = db.Column(db.String(40), db.ForeignKey('users.username'), nullable=False)
   questionId = db.Column(db.Integer, db.ForeignKey('questions.id'), nullable=False)
   body = db.Column(db.String(2000), nullable= False)
   voteCount = db.Column(db.Integer, nullable= True)
@@ -60,6 +61,7 @@ class Answer(db.Model):
     return {
       "id": self.id,
       "userId": self.userId,
+      "username": self.username,
       "questionId": self.questionId,
       "body": self.body,
       "voteCount": self.voteCount,

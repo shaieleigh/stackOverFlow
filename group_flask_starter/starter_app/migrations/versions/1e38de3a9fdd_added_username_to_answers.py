@@ -1,8 +1,8 @@
-"""added tags and updated questions
+"""added username to answers
 
-Revision ID: 4030229516a3
+Revision ID: 1e38de3a9fdd
 Revises: 
-Create Date: 2020-10-27 16:31:55.754438
+Create Date: 2020-10-27 17:05:37.347046
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '4030229516a3'
+revision = '1e38de3a9fdd'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -41,12 +41,14 @@ def upgrade():
     op.create_table('answers',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
+    sa.Column('username', sa.String(length=40), nullable=False),
     sa.Column('questionId', sa.Integer(), nullable=False),
     sa.Column('body', sa.String(length=2000), nullable=False),
     sa.Column('voteCount', sa.Integer(), nullable=True),
     sa.Column('date_answered', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['questionId'], ['questions.id'], ),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['username'], ['users.username'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('tags',
