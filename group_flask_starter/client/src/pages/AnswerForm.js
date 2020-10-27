@@ -15,6 +15,7 @@ function AnswerForm(questionId1) {
         e.preventDefault();
         if (!auth.user) return <Redirect to="/login" />;
         const userId = auth.user.id
+        const username = auth.user.username
         const questionId = questionId1.questionId
         const voteCount = 0
         await fetch(`/api/answers/${questionId}`, {
@@ -23,7 +24,7 @@ function AnswerForm(questionId1) {
                 "Content-Type": "application/json",
                 "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
             },
-            body: JSON.stringify({ userId, questionId, body, voteCount })
+            body: JSON.stringify({ userId, questionId, body, voteCount, username })
         });
         setBody("")
         document.getElementById("getme").value = ""

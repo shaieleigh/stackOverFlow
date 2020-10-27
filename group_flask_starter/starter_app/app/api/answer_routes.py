@@ -30,12 +30,14 @@ def answer(questionId):
     questionId = data['questionId']
     body = data['body']
     voteCount = data['voteCount']
+    username = data['username']
 
     answer = Answer(
             userId=userId,
             questionId=questionId,
             body=body,
-            voteCount=voteCount
+            voteCount=voteCount,
+            username=username
     )
 
     db.session.add(answer)
