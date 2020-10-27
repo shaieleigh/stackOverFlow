@@ -29,6 +29,7 @@ def askQuestion():
   title = data["title"]
   userId = data['userId']
   body = data['body']
+  taglist = data['taglist']
 
   question = Question(
         title=title,
@@ -36,7 +37,21 @@ def askQuestion():
         body=body,
   )
 
+
+
   db.session.add(question)
+  db.session.commit()
+
+  questionId = question.id
+
+  for tag in taglist:
+      print("I got here")
+      tag1 = Tag(
+          questionId=questionId,
+          name=tag
+      )
+      db.session.add(tag1)
+
   db.session.commit()
 
   question1 = question.to_dict()

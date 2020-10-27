@@ -10,12 +10,11 @@ function QuestionForm() {
 
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
-    const [tags, setTags] = useState('');
-    const [tags1, setTags1] = useState('');
     const history = useHistory()
     const taglist = [];
     const auth = useSelector(state => state.auth)
     const handleSubmit = async (e) => {
+        console.log(taglist)
         e.preventDefault();
         const userId = auth.user.id
         await fetch('/api/questions/ask', {
@@ -24,7 +23,7 @@ function QuestionForm() {
                 "Content-Type": "application/json",
                 "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
             },
-            body: JSON.stringify({ title, userId, body })
+            body: JSON.stringify({ title, userId, body, taglist })
         });
         history.push('/questions');
     }
