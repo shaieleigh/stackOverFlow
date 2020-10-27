@@ -44,3 +44,14 @@ def answer(questionId):
     answer1 = answer.to_dict()
 
     return jsonify(answer=answer1), 200
+
+
+@answer_routes.route('/<answerId>/voteCount', methods=['PUT'])
+def vchange(answerId):
+        data = request.get_json()
+        vote = data['vote']
+        answer = Answer.query.filter_by(id=answerId).first()
+        answer.voteCount = answer.voteCount + vote
+        db.session.add(answer)
+        db.session.commit()
+        return jsonify(answer=answer.to_dict)

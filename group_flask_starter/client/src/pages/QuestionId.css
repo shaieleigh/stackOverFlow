@@ -93,3 +93,10 @@
     display: flex;
     justify-content: flex-start;
 }
+
+.aitem2 {
+    width: 100%;
+    padding: 20px;
+    border-right: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+}

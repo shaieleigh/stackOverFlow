@@ -75,7 +75,7 @@ export default function QuestionId() {
             const list1 = []
             for (let i = 0; i < answers.length; i++) {
                 list1.push(
-                <Grid key={answers[i].id} item className="qitem1">
+                <Grid key={answers[i].id} item className="aitem2">
                     <AnswerDisplay key={answers[i].id} answer={answers[i]}/>
                 </Grid>
                 )
