@@ -12,34 +12,35 @@ def index():
     return {"answers": [answer.to_dict() for answer in response]}
 
 
-@answer_routes.route('/q/<questionId>')
-def answerOne(questionId):
-    question_id=questionId
-    response = Answer.query.filter_by(questionId=question_id).order_by(Answer.voteCount.desc()).all()
-    return {"answers": [answer.to_dict() for answer in response]}
 
 
-@answer_routes.route('/<questionId>', methods=['POST'])
+
+
+@answer_routes.route('/<questionId>', methods=['GET','POST'])
 def answer(questionId):
-  data = request.get_json()
 
-  answer1 = questionId
+  if request.method == "GET":
+      question_id=questionId
+      response = Answer.query.filter_by(questionId=question_id).order_by(Answer.voteCount.desc()).all()
+      return {"answers": [answer.to_dict() for answer in response]}
+  if request.method == "POST":
+    data = request.get_json()
 
-  userId = data['userId']
-  questionId = data['questionId']
-  body = data['body']
-  voteCount = data['voteCount']
+    userId = data['userId']
+    questionId = data['questionId']
+    body = data['body']
+    voteCount = data['voteCount']
 
-  answer = Answer(
-        userId=userId,
-        questionId=answer1,
-        body=body,
-        voteCount=voteCount
-  )
+    answer = Answer(
+            userId=userId,
+            questionId=questionId,
+            body=body,
+            voteCount=voteCount
+    )
 
-  db.session.add(answer)
-  db.session.commit()
+    db.session.add(answer)
+    db.session.commit()
 
-  answer1 = answer.to_dict()
+    answer1 = answer.to_dict()
 
-  return jsonify(answer=answer1), 200
+    return jsonify(answer=answer1), 200

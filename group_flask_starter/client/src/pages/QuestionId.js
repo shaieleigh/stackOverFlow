@@ -14,6 +14,7 @@ import { Button } from '@material-ui/core';
 import NavBar from '../components/NavBar';
 import PublicIcon from '@material-ui/icons/Public';
 import { NavLink } from 'react-router-dom'
+import AnswerForm from './AnswerForm'
 
 
 const colors = {
@@ -93,7 +94,9 @@ export default function QuestionId() {
           Object.values(answers).forEach(answer => {
             count ++
           })
-          return count;
+          if (count > 0) {
+            return (<span id="acount">{count + " answers"}</span>);
+          }
         }
         return
     }
@@ -124,9 +127,15 @@ export default function QuestionId() {
                     <QuestionDisplay key={question.id} question={question}/>
                 </Grid>
                 <Grid key={66} item className="aitem1">
-                    <span id="acount">{countfunc() + " answers"}</span>
+                    {countfunc()}
                 </Grid>
                 {answerrender()}
+                <Grid key={67} item className="aitem1">
+                    <span id="acount">Your Answer</span>
+                </Grid>
+                <Grid key={68} item className="qitem1">
+                    <AnswerForm questionId={question.id}/>
+                </Grid>
                 </Grid>
                 </ThemeProvider>
 

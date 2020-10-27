@@ -11,10 +11,11 @@ function QuestionForm() {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [tags, setTags] = useState('');
-    const history = useHistory();
-    const userId = useSelector(state => state.auth.user.id);
+    const history = useHistory()
+    const auth = useSelector(state => state.auth)
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const userId = auth.user.id
         await fetch('/api/questions/ask', {
             method: 'post',
             headers: {
@@ -25,6 +26,7 @@ function QuestionForm() {
         });
         history.push('/questions');
     }
+    if (!auth.user) return <Redirect to="/login" />;
 
     return (
         <>
