@@ -190,7 +190,9 @@ export default function NavBar() {
           >
             {/* <MenuIcon /> hiding this bc it's inactive/not functional */}
           </IconButton>
+          <NavLink to="/questions">
           <StackLogo />
+          </NavLink>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon className='searchIcon' />
@@ -211,7 +213,7 @@ export default function NavBar() {
           {/* <button id='navbarLogin' onClick={handleDemoSubmit}>Demo Log In</button>  */}
           <button id='navbarSignup' onClick={handleSignUpButton}><NavLink id='navLinkBar' to='/signup'>Sign up</NavLink></button>
           </>)}
-          
+
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

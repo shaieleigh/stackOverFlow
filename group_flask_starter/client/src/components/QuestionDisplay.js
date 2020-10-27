@@ -1,12 +1,40 @@
 import React from 'react';
-
+import Cookies from "js-cookie";
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-
+import { fetchQuestion } from '../store/question'
+import { useDispatch } from "react-redux";
 import './QuestionDisplay.css'
 
 function QuestionDisplay({ question }) {
+    const dispatch = useDispatch();
+    const upcount = async () => {
+        const questionId = question.id
+        const vote = 1
+        await fetch(`/api/questions/${questionId}/voteCount`, {
+            method: 'put',
+            headers: {
+                "Content-Type": "application/json",
+                "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+            },
+            body: JSON.stringify({ vote })
+        });
+        dispatch(fetchQuestion(questionId))
+    }
+    const downcount = async () => {
+        const questionId = question.id
+        const vote = -1
+        await fetch(`/api/questions/${questionId}/voteCount`, {
+            method: 'put',
+            headers: {
+                "Content-Type": "application/json",
+                "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+            },
+            body: JSON.stringify({ vote })
+        });
+        dispatch(fetchQuestion(questionId))
+    }
 
     const tagRender = () => {
         const list1 = []
@@ -24,9 +52,9 @@ function QuestionDisplay({ question }) {
     return (
         <div className="qbox">
             <span id="votes">
-              <ArrowDropUpIcon id="arrow"/>
+              <ArrowDropUpIcon onClick={upcount} id="arrow"/>
               <span className="counts">{question.voteCount}</span>
-              <ArrowDropDownIcon id="arrow"/>
+              <ArrowDropDownIcon onClick={downcount}  id="arrow"/>
             </span>
             <span id="body">
                 {question.body}

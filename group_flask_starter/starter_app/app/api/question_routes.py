@@ -56,3 +56,13 @@ def getspecific(qid):
     questionsdict["username"] = usersdict["username"]
     questionsdict["tags"] = tagdict
     return jsonify(question=questionsdict), 200
+
+@question_routes.route('/<questionId>/voteCount', methods=['PUT'])
+def vchange2(questionId):
+        data = request.get_json()
+        vote = data['vote']
+        question = Question.query.filter_by(id=questionId).first()
+        question.voteCount = question.voteCount + vote
+        db.session.add(question)
+        db.session.commit()
+        return jsonify(question=question.to_dict)
