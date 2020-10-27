@@ -24,7 +24,7 @@ function QuestionLi({ question }) {
     }
     return (
         <div className="paper">
-            <span id="votecount">{question.voteCount ? question.answerCount : 0}
+            <span id="votecount">{question.voteCount ? question.voteCount : 0}
               <span className="countlabel">votes</span>
             </span>
             <span id="anscount">{question.answerCount ? question.answerCount : 0}
