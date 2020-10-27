@@ -1,0 +1,56 @@
+.abox {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+          "votecount question question question question"
+          "viewcount space space space username";
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+#body2 {
+    grid-area: question;
+    font: 16px Arial;
+    justify-self: left;
+    color: black;
+}
+#user2 {
+    grid-area: username;
+    align-self: center;
+    font: 12px Arial;
+    color: #0077CC;
+    background-color: #E1ECF4;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#votes2 {
+    grid-area: votecount;
+    font: 20px Arial;
+
+    color: #6A737C;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0px 10px 0px;
+}
+
+#tagbox2 {
+    grid-area: space;
+    justify-self: left;
+    align-self: start;
+}
+
+.tags2 {
+    font: 12px Arial;
+    color: #39739D;
+    background-color: #E1ECF4;
+    padding: 5px;
+
+}
+
+#arrow {
+}

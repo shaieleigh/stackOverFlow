@@ -1,8 +1,10 @@
 import React, { useEffect} from 'react';
 import { fetchQuestion } from '../store/question';
+import { fetchAnswers } from '../store/answer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 import QuestionDisplay from '../components/QuestionDisplay';
+import AnswerDisplay from '../components/AnswerDisplay';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
@@ -60,7 +62,42 @@ export default function QuestionId() {
         debugger
         dispatch(fetchQuestion(id));
       }, [dispatch, id]);
+      useEffect(() => {
+        debugger
+        dispatch(fetchAnswers(id));
+      }, [dispatch, id]);
     const question = useSelector(state => state.questionReducer);
+    const answers = useSelector(state => state.answer);
+
+    const answerrender = () => {
+        if (answers) {
+            const list1 = []
+            for (let i = 0; i < answers.length; i++) {
+                list1.push(
+                <Grid key={answers[i].id} item className="qitem1">
+                    <AnswerDisplay key={answers[i].id} answer={answers[i]}/>
+                </Grid>
+                )
+            }
+            return list1;
+        } else {
+            return
+
+        }
+
+    }
+
+    let count = 0;
+    const countfunc = () => {
+        if (answers) {
+          Object.values(answers).forEach(answer => {
+            count ++
+          })
+          return count;
+        }
+        return
+    }
+
     console.log(question)
       return (
         <>
@@ -73,7 +110,7 @@ export default function QuestionId() {
                     <span id="headertext1">{question.title}
 
                     </span>
-                    <Button classes={classes}><NavLink id="linkz2" to="/questions/ask">Ask A Question</NavLink></Button>
+                    <Button classes={classes}><NavLink id="linkz2" to="/questions/ask">Ask Question</NavLink></Button>
 
 
                     </div>
@@ -86,6 +123,10 @@ export default function QuestionId() {
                 <Grid key={question.id} item className="qitem1">
                     <QuestionDisplay key={question.id} question={question}/>
                 </Grid>
+                <Grid key={66} item className="aitem1">
+                    <span id="acount">{countfunc() + " answers"}</span>
+                </Grid>
+                {answerrender()}
                 </Grid>
                 </ThemeProvider>
 
