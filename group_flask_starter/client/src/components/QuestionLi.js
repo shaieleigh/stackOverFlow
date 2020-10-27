@@ -24,10 +24,10 @@ function QuestionLi({ question }) {
     }
     return (
         <div className="paper">
-            <span id="votecount">{question.voteCount}
+            <span id="votecount">{question.voteCount ? question.answerCount : 0}
               <span className="countlabel">votes</span>
             </span>
-            <span id="anscount">{question.answerCount}
+            <span id="anscount">{question.answerCount ? question.answerCount : 0}
               <span className="countlabel">answers</span>
             </span>
             <span id="viewcount">{Math.floor(Math.random() * 20)} views</span>

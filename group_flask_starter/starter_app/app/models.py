@@ -29,8 +29,8 @@ class Question(db.Model):
   userId = db.Column(db.Integer, db.ForeignKey('users.id'),
         nullable=False)
   body = db.Column(db.String(2000), nullable= False)
-  voteCount = db.Column(db.Integer, nullable=True)
-  answerCount = db.Column(db.Integer, nullable= True)
+  voteCount = db.Column(db.Integer, nullable= False, default=0)
+  answerCount = db.Column(db.Integer, nullable= False, default=0)
   date_created = db.Column(db.DateTime, default=datetime.now())
   answers = db.relationship('Answer', backref='questions', lazy=True)
   tag = db.relationship('Tag', backref='questions', lazy=True)
@@ -53,8 +53,8 @@ class Answer(db.Model):
   userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
   username = db.Column(db.String(40), db.ForeignKey('users.username'), nullable=False)
   questionId = db.Column(db.Integer, db.ForeignKey('questions.id'), nullable=False)
-  body = db.Column(db.String(2000), nullable= False)
-  voteCount = db.Column(db.Integer, nullable= True)
+  body = db.Column(db.String(2000), nullable=False)
+  voteCount = db.Column(db.Integer, nullable=False, default=0)
   date_answered = db.Column(db.DateTime, default=datetime.now())
 
   def to_dict(self):

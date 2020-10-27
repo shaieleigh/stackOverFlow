@@ -1,8 +1,8 @@
-"""added username to answers
+"""default 0
 
-Revision ID: 1e38de3a9fdd
+Revision ID: 6e362b95aaf7
 Revises: 
-Create Date: 2020-10-27 17:05:37.347046
+Create Date: 2020-10-27 19:38:50.922539
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '1e38de3a9fdd'
+revision = '6e362b95aaf7'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -32,8 +32,8 @@ def upgrade():
     sa.Column('title', sa.String(length=200), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
     sa.Column('body', sa.String(length=2000), nullable=False),
-    sa.Column('voteCount', sa.Integer(), nullable=True),
-    sa.Column('answerCount', sa.Integer(), nullable=True),
+    sa.Column('voteCount', sa.Integer(), nullable=False),
+    sa.Column('answerCount', sa.Integer(), nullable=False),
     sa.Column('date_created', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -44,7 +44,7 @@ def upgrade():
     sa.Column('username', sa.String(length=40), nullable=False),
     sa.Column('questionId', sa.Integer(), nullable=False),
     sa.Column('body', sa.String(length=2000), nullable=False),
-    sa.Column('voteCount', sa.Integer(), nullable=True),
+    sa.Column('voteCount', sa.Integer(), nullable=False),
     sa.Column('date_answered', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['questionId'], ['questions.id'], ),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),

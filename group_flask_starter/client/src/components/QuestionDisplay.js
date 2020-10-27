@@ -53,7 +53,7 @@ function QuestionDisplay({ question }) {
         <div className="qbox">
             <span id="votes">
               <ArrowDropUpIcon onClick={upcount} id="arrow"/>
-              <span className="counts">{question.voteCount}</span>
+              <span className="counts">{question.voteCount ? question.voteCount : 0}</span>
               <ArrowDropDownIcon onClick={downcount}  id="arrow"/>
             </span>
             <span id="body">
