@@ -10,21 +10,21 @@ answer_routes = Blueprint('answers', __name__)
 def index():
     response = Answer.query.order_by(Answer.date_answered.desc())
     return {"answers": [answer.to_dict() for answer in response]}
-  
 
-@answer_routes.route('/<questionId>')
+
+@answer_routes.route('/q/<questionId>')
 def answerOne(questionId):
     question_id=questionId
-    response = Answer.query.filter_by(questionId=question_id)
+    response = Answer.query.filter_by(questionId=question_id).order_by(Answer.voteCount.desc()).all()
     return {"answers": [answer.to_dict() for answer in response]}
-  
 
-@answer_routes.route('/<int:questionId>', methods=['POST'])
+
+@answer_routes.route('/<questionId>', methods=['POST'])
 def answer(questionId):
   data = request.get_json()
 
   answer1 = questionId
-  
+
   userId = data['userId']
   questionId = data['questionId']
   body = data['body']

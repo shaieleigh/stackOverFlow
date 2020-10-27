@@ -53,14 +53,15 @@ const theme = createMuiTheme({
 
 export default function QuestionId() {
     const classes = useStyles()
-
     let { id } = useParams();
+    console.log(id)
     const dispatch = useDispatch();
     useEffect(() => {
         debugger
         dispatch(fetchQuestion(id));
       }, [dispatch, id]);
     const question = useSelector(state => state.questionReducer);
+    console.log(question)
       return (
         <>
             <NavBar/>
