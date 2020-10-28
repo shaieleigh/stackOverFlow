@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
 import { fetchQuestions } from '../store/question';
 // import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
@@ -26,8 +26,9 @@ const theme = createMuiTheme({
 
 export default function Questions() {
     const dispatch = useDispatch();
+    const [filters, setFilters] = useState('date');
     useEffect(() => {
-        dispatch(fetchQuestions());
+        dispatch(fetchQuestions(filters));
       }, [dispatch]);
       const questions = useSelector(state => state.questionReducer);
       let count = 0;
@@ -37,6 +38,20 @@ export default function Questions() {
           })
           return count;
         }
+
+      const handleFilter = (e) => {
+        if (e.target.id === "11") {
+            setFilters('date')
+            document.getElementById("11").classList.add("selected")
+            document.getElementById("22").classList.remove("selected")
+            dispatch(fetchQuestions("date"))
+        } else if (e.target.id === "22") {
+            document.getElementById("22").classList.add("selected")
+            document.getElementById("11").classList.remove("selected")
+            dispatch(fetchQuestions("votes"))
+        }
+
+      }
 
     return (
         <>
@@ -48,7 +63,7 @@ export default function Questions() {
                         The Overflow Blog
                     </div>
                     <span className="yellowli"><svg aria-hidden="true" class="iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="M11.1 1.71l1.13 1.12c.2.2.2.51 0 .71L11.1 4.7 9.21 2.86l1.17-1.15c.2-.2.51-.2.71 0zM2 10.12l6.37-6.43 1.88 1.88L3.88 12H2v-1.88z"/></svg>Making the most of your ice cream</span>
-                    <span className="yellowli"><svg aria-hidden="true" class="iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="M11.1 1.71l1.13 1.12c.2.2.2.51 0 .71L11.1 4.7 9.21 2.86l1.17-1.15c.2-.2.51-.2.71 0zM2 10.12l6.37-6.43 1.88 1.88L3.88 12H2v-1.88z"/></svg>Podcast 281: The story behind cheetos</span>
+                    <span className="yellowli"><svg aria-hidden="true" class="iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="M11.1 1.71l1.13 1.12c.2.2.2.51 0 .71L11.1 4.7 9.21 2.86l1.17-1.15c.2-.2.51-.2.71 0zM2 10.12l6.37-6.43 1.88 1.88L3.88 12H2v-1.88z"/></svg>Podcast 281: The story of cheetos</span>
                 </div>
                 <div className = "meta1">
                     <div className="meta1Header">
@@ -113,11 +128,17 @@ export default function Questions() {
                     <div id="headergroup">
                       <span id="headertext"> All Questions
                         <span id="qcount">{countfunc() + " questions"}</span>
-
                       </span>
-                      <button className="ask-button">
-                      <NavLink className="ask-button" to="/questions/ask">Ask A Question</NavLink>
-                      </button>
+
+                      <span className="buttonGroup">
+                        <button className="ask-button">
+                            <NavLink className="ask-buttontext" to="/questions/ask">Ask A Question</NavLink>
+                        </button>
+                        <span className="filterspan">
+                                <button id="11" className="filter1 selected" onClick={handleFilter}>Newest</button>
+                                <button id="22" className="filter2" onClick={handleFilter}>Votes</button>
+                        </span>
+                      </span>
 
 
                     </div>

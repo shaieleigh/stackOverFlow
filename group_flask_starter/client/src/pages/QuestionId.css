@@ -100,3 +100,10 @@
     border-right: 1px solid lightgrey;
     /* border-bottom: 1px solid lightgrey; */
 }
+
+.left2 {
+    position: absolute;
+    left: 76%;
+    top: 25%;
+    width: 22%;
+}

@@ -26,6 +26,16 @@ function AnswerForm(questionId1) {
             },
             body: JSON.stringify({ userId, questionId, body, voteCount, username })
         });
+
+        const vote = 1
+        await fetch(`/api/questions/${questionId}/answerCount`, {
+                method: 'put',
+                headers: {
+                    "Content-Type": "application/json",
+                    "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+                },
+                body: JSON.stringify({ vote })
+        });
         setBody("")
         document.getElementById("getme").value = ""
         dispatch(fetchAnswers(questionId))
