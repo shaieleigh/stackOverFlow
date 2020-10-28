@@ -80,3 +80,147 @@
     flex-direction: row;
     align-items: center;
 }
+
+.left {
+    position: absolute;
+    left: 76%;
+    top: 15%;
+    width: 22%;
+}
+
+.blog {
+    display: flex;
+    flex-direction: column;
+}
+
+.yellowli {
+    background-color: #fbf2E3;
+    color: black;
+    font: 13px Arial;
+    padding: 5%;
+}
+.yellowli2 {
+    background-color: #fbf2E3;
+    color: black;
+    font: 13px Arial;
+    padding: 5%;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.blogHeader {
+    background-color: #FBF2D4;
+    color: #6a737c;
+    font: 12px Arial;
+    font-weight: bold;
+    padding: 5%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.meta1Header {
+    background-color: #FBF2D4;
+    color: #6a737c;
+    font: 12px Arial;
+    font-weight: bold;
+    padding: 5%;
+}
+
+.hotmeta1Header {
+    background-color: #FBF2D4;
+    color: #6a737c;
+    font: 12px Arial;
+    font-weight: bold;
+    padding: 5%;
+}
+
+
+.meta1 {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.hotmeta1 {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.yellowsidebar {
+    border-radius: 10px;
+    width: 90%;
+    box-shadow: 0px 0px 5px grey;
+}
+
+.jobsidebar {
+    width: 90%;
+    margin-top: 10%;
+    box-shadow: 0px 0px 5px grey;
+    display: flex;
+    flex-direction: column;
+}
+
+.jobHeader {
+    background-image: linear-gradient(to right, #e06227, #FFA500);
+    font-family: 'Roboto Slab', serif;
+    font-size: 19px;
+    color: white;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%
+}
+
+.job-wrap-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-bottom: 5%;
+}
+
+.jobinfo {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2px 0px 10px;
+}
+
+.numside {
+    color: #6a737c;
+    padding-right: 5%;
+}
+
+.iconPencilSm {
+    margin-right: 5%;
+}
+
+.jobtitle {
+    font: 13px Arial;
+    font-weight: bolder;
+    color: #0077CC;
+    padding-bottom: 2%
+}
+
+.company {
+    font: 12px Arial;
+    color: #858C93;
+    font-weight: bold;
+}
+
+.location {
+    font: 12px Arial;
+    color: #858C93;
+    font-style: italic;
+    padding-bottom: 5%;
+}
+
+.tagstwo {
+    font: 12px Arial;
+    color: #39739D;
+    background-color: #E1ECF4;
+    padding: 5px;
+    margin-right: 5px;
+
+}
