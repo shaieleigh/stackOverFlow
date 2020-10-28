@@ -4,22 +4,40 @@ from sqlalchemy import desc
 
 question_routes = Blueprint('questions', __name__)
 
-@question_routes.route('/')
+@question_routes.route('/', methods=['PUT'])
 def index():
+  data = request.get_json()
+  filters = data["filters"]
   usersdict2 = {}
-  response = Question.query.order_by(Question.date_created.desc())
-  response2 = User.query.all()
-  questionsdict =  {"questions": [question.to_dict() for question in response]}
-  usersdict =  {"users": [user.to_dict() for user in response2]}
-  for value in usersdict.values():
-      for i in range(0,len(value)):
-        usersdict2[value[i]["id"]] = value[i]["username"]
-  for value in questionsdict.values():
-      for i in range(0,len(value)):
-        value[i]["username"] = usersdict2[value[i]["userId"]]
-        tags = Tag.query.filter_by(questionId=value[i]["id"]).all()
-        tagdict = [tag.to_dict() for tag in tags]
-        value[i]["tags"] = tagdict
+  if filters == "date":
+    response = Question.query.order_by(Question.date_created.desc())
+    response2 = User.query.all()
+    questionsdict =  {"questions": [question.to_dict() for question in response]}
+    usersdict =  {"users": [user.to_dict() for user in response2]}
+    for value in usersdict.values():
+        for i in range(0,len(value)):
+            usersdict2[value[i]["id"]] = value[i]["username"]
+    for value in questionsdict.values():
+        for i in range(0,len(value)):
+            value[i]["username"] = usersdict2[value[i]["userId"]]
+            tags = Tag.query.filter_by(questionId=value[i]["id"]).all()
+            tagdict = [tag.to_dict() for tag in tags]
+            value[i]["tags"] = tagdict
+  if filters=="votes":
+    response = Question.query.order_by(Question.voteCount.desc())
+    response2 = User.query.all()
+    questionsdict =  {"questions": [question.to_dict() for question in response]}
+    usersdict =  {"users": [user.to_dict() for user in response2]}
+    for value in usersdict.values():
+        for i in range(0,len(value)):
+            usersdict2[value[i]["id"]] = value[i]["username"]
+    for value in questionsdict.values():
+        for i in range(0,len(value)):
+            value[i]["username"] = usersdict2[value[i]["userId"]]
+            tags = Tag.query.filter_by(questionId=value[i]["id"]).all()
+            tagdict = [tag.to_dict() for tag in tags]
+            value[i]["tags"] = tagdict
+
   return questionsdict
 
 @question_routes.route('/ask', methods=['POST'])
@@ -78,6 +96,15 @@ def vchange2(questionId):
         vote = data['vote']
         question = Question.query.filter_by(id=questionId).first()
         question.voteCount = question.voteCount + vote
+        db.session.add(question)
+        db.session.commit()
+        return jsonify(question=question.to_dict)
+@question_routes.route('/<questionId>/answerCount', methods=['PUT'])
+def vchange3(questionId):
+        data = request.get_json()
+        vote = data['vote']
+        question = Question.query.filter_by(id=questionId).first()
+        question.answerCount = question.answerCount + vote
         db.session.add(question)
         db.session.commit()
         return jsonify(question=question.to_dict)

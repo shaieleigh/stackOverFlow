@@ -26,8 +26,8 @@ with app.app_context():
   db.session.add(soonmi)
   db.session.add(alissa)
 
-  q1 = Question(userId = 1, title = "What is the best kind of snack?", body = 'Im deciding between oreos and pears', date_created = datetime(2020, 9, 29, 14, 34, 26), voteCount=3, answerCount=1)
-  q2 = Question(userId = 2, title = "I need help with food", body = 'I want to have something that is both sweet and sour', date_created = datetime(2019, 9, 29, 14, 34, 26), voteCount=-2, answerCount=2)
+  q1 = Question(userId = 1, title = "What is the best kind of snack?", body = 'Im deciding between oreos and pears', date_created = datetime(2020, 9, 29, 14, 34, 26), voteCount=3, answerCount=2)
+  q2 = Question(userId = 2, title = "I need help with food", body = 'I want to have something that is both sweet and sour', date_created = datetime(2019, 9, 29, 14, 34, 26), voteCount=-2, answerCount=1)
   q3 = Question(userId = 3, title = "What is my favorite snack?", body = 'Decide for me', date_created = datetime(2020, 7, 2, 14, 34, 26), voteCount=4, answerCount=1)
   q4 = Question(userId = 4, title = "How good are regular cheetos?", body = 'I love hot cheetos', date_created = datetime(2020, 5, 7, 14, 34, 26), voteCount=4, answerCount=1)
   q5 = Question(userId = 5, title = "I have a question about lollipops", body = 'How many licks does it take to get to the center?', date_created = datetime(2020, 3, 14, 14, 34, 26), voteCount=1, answerCount=1)
