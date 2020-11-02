@@ -96,7 +96,7 @@ function SignupPage() {
               <p className='signupP'>Check out privileges like voting and commenting</p>
               <p className='signupP'>Search for answers to questions already asked</p>
               <p className='signupP'>Earn reputation and badges</p>
-              <p className='little'>Use the Demo User Link here to tour around</p>
+              {/* <p className='little'>Use the Demo User Link here to tour around</p> */}
             </div>
           </div>
           <div className='signUpDiv'>
@@ -116,7 +116,7 @@ function SignupPage() {
                     </div>
                     <div className="buttonDiv">
                     <div className='signUpLabel'><label>Password</label></div>
-                    <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
+                    <TextField className='signup' id="outlined-basic" variant="outlined" type="password" onChange = {e => setPassword(e.target.value)}/>
                     </div>
                     <div className="signUpButton">
                       <Button id='signupButtonButton' type="submit" classes={classes} variant="contained" disableElevation>

@@ -10,36 +10,50 @@ answer_routes = Blueprint('answers', __name__)
 def index():
     response = Answer.query.order_by(Answer.date_answered.desc())
     return {"answers": [answer.to_dict() for answer in response]}
-  
 
-@answer_routes.route('/<questionId>')
-def answerOne(questionId):
-    question_id=questionId
-    response = Answer.query.filter_by(questionId=question_id)
-    return {"answers": [answer.to_dict() for answer in response]}
-  
 
-@answer_routes.route('/<int:questionId>', methods=['POST'])
+
+
+
+
+@answer_routes.route('/<questionId>', methods=['GET','POST'])
 def answer(questionId):
-  data = request.get_json()
 
-  answer1 = questionId
-  
-  userId = data['userId']
-  questionId = data['questionId']
-  body = data['body']
-  voteCount = data['voteCount']
+  if request.method == "GET":
+      question_id=questionId
+      response = Answer.query.filter_by(questionId=question_id).order_by(Answer.voteCount.desc()).all()
+      return {"answers": [answer.to_dict() for answer in response]}
+  if request.method == "POST":
+    data = request.get_json()
 
-  answer = Answer(
-        userId=userId,
-        questionId=answer1,
-        body=body,
-        voteCount=voteCount
-  )
+    userId = data['userId']
+    questionId = data['questionId']
+    body = data['body']
+    voteCount = data['voteCount']
+    username = data['username']
 
-  db.session.add(answer)
-  db.session.commit()
+    answer = Answer(
+            userId=userId,
+            questionId=questionId,
+            body=body,
+            voteCount=voteCount,
+            username=username
+    )
 
-  answer1 = answer.to_dict()
+    db.session.add(answer)
+    db.session.commit()
 
-  return jsonify(answer=answer1), 200
+    answer1 = answer.to_dict()
+
+    return jsonify(answer=answer1), 200
+
+
+@answer_routes.route('/<answerId>/voteCount', methods=['PUT'])
+def vchange(answerId):
+        data = request.get_json()
+        vote = data['vote']
+        answer = Answer.query.filter_by(id=answerId).first()
+        answer.voteCount = answer.voteCount + vote
+        db.session.add(answer)
+        db.session.commit()
+        return jsonify(answer=answer.to_dict)

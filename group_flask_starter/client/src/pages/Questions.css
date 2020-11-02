@@ -18,15 +18,16 @@
     display: flex;
     justify-content: flex-start;
     border-bottom: 1px solid lightgray;
+    flex-direction: column;
 }
 
 #headertext {
-    padding: 50px 0px 30px 80px;
+    padding: 50px 0px 30px 60px;
     font: 22px Arial;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
+    flex: 1;
 }
 
 #qcount {
@@ -50,9 +51,231 @@
     justify-content: space-around;
     font-weight: bold;
     border-right: 5px solid orange;
+    text-decoration: none;
+}
+
+#smallsnack {
+    text-decoration: none;
+    color: black;
 }
 
 #pub {
     font-size: 11px;
     padding-left: 10px;
+}
+
+.ask-buttontext {
+    text-decoration: none;
+    color: white;
+
+
+}
+
+.ask-button {
+    color: white;
+    border: none;
+    border-radius: 4px;
+    background-color: #0095F6;
+    height: 35px;
+    width: 100%;
+}
+
+#headergroup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.left {
+    position: absolute;
+    left: 76%;
+    top: 15%;
+    width: 22%;
+}
+
+.blog {
+    display: flex;
+    flex-direction: column;
+}
+
+.yellowli {
+    background-color: #fbf2E3;
+    color: black;
+    font: 13px Arial;
+    padding: 5%;
+}
+.yellowli2 {
+    background-color: #fbf2E3;
+    color: black;
+    font: 13px Arial;
+    padding: 5%;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.blogHeader {
+    background-color: #FBF2D4;
+    color: #6a737c;
+    font: 12px Arial;
+    font-weight: bold;
+    padding: 5%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.meta1Header {
+    background-color: #FBF2D4;
+    color: #6a737c;
+    font: 12px Arial;
+    font-weight: bold;
+    padding: 5%;
+}
+
+.hotmeta1Header {
+    background-color: #FBF2D4;
+    color: #6a737c;
+    font: 12px Arial;
+    font-weight: bold;
+    padding: 5%;
+}
+
+
+.meta1 {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.hotmeta1 {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.yellowsidebar {
+    border-radius: 10px;
+    width: 90%;
+    box-shadow: 0px 0px 5px grey;
+}
+
+.jobsidebar {
+    width: 90%;
+    margin-top: 10%;
+    box-shadow: 0px 0px 5px grey;
+    display: flex;
+    flex-direction: column;
+}
+
+.jobHeader {
+    background-image: linear-gradient(to right, #e06227, #FFA500);
+    font-family: 'Roboto Slab', serif;
+    font-size: 19px;
+    color: white;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%
+}
+
+.job-wrap-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-bottom: 5%;
+}
+
+.jobinfo {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2px 0px 10px;
+}
+
+.numside {
+    color: #6a737c;
+    padding-right: 5%;
+}
+
+.iconPencilSm {
+    margin-right: 5%;
+}
+
+.jobtitle {
+    font: 13px Arial;
+    font-weight: bolder;
+    color: #0077CC;
+    padding-bottom: 2%
+}
+
+.company {
+    font: 12px Arial;
+    color: #858C93;
+    font-weight: bold;
+}
+
+.location {
+    font: 12px Arial;
+    color: #858C93;
+    font-style: italic;
+    padding-bottom: 5%;
+}
+
+.tagstwo {
+    font: 12px Arial;
+    color: #39739D;
+    background-color: #E1ECF4;
+    padding: 5px;
+    margin-right: 5px;
+
+}
+
+.filterspan {
+    margin-top: 20%;
+}
+
+.buttonGroup {
+    display: flex;
+    flex-direction: column;
+    padding: 4%;
+}
+
+
+.filter1 {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-left: .5px solid #6A737C;
+    border-top: .5px solid #6A737C;
+    border-bottom: .5px solid #6A737C;
+    border-right: none;
+    width: 50%;
+    padding-top: 8%;
+    padding-bottom: 8%;
+    font: 12px Arial;
+    background-color: white;
+    color: #6A737C;
+    outline:none;
+    cursor:pointer;
+
+}
+.filter2 {
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-left: .5px solid #6A737C;
+    border-right: .5px solid #6A737C;
+    border-top: .5px solid #6A737C;
+    border-bottom: .5px solid #6A737C;
+    width: 50%;
+    padding-top: 8%;
+    padding-bottom: 8%;
+    font: 12px Arial;
+    background-color: white;
+    color: #6A737C;
+    outline:none;
+    cursor:pointer;
+
+}
+
+.selected {
+    background-color: #E4E6E8;
 }

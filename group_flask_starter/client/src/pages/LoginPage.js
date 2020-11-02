@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { login } from '../store/auth';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
@@ -73,43 +73,75 @@ function LoginPage() {
 
     return (
       <>
-        <NavBar/>
+        <NavBar />
         <Container>
-            <ThemeProvider theme={theme}>
-              <div className="errors-container">
-                <ul className="errors" id="errors"></ul>
-              </div>
-              <form id="login-form" onSubmit={handleSubmit}>
-
-                {/* <div className="buttonDiv">
+          <ThemeProvider theme={theme}>
+            <div className="errors-container">
+              <ul className="errors" id="errors"></ul>
+            </div>
+            <form id="login-form" onSubmit={handleSubmit}>
+              {/* <div className="buttonDiv">
                 <div><label>Email</label></div>
                 <Input className='signup' id="outlined-basic" variant="outlined" onChange = {e => setEmail(e.target.value)}/>
                 </div> */}
-                <div className="buttonDiv">
-                  <div className='signUpLabel'><label>Email</label></div>
-                  <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setEmail(e.target.value)}/>
+              <div className="buttonDiv">
+                <div className="signUpLabel">
+                  <label>Email</label>
                 </div>
-                {/* <div className="buttonDiv">
+                <TextField
+                  className="signup"
+                  id="outlined-basic"
+                  variant="outlined"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              {/* <div className="buttonDiv">
                   <div><label>Password</label></div>
                   <Input type='password' className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
                 </div> */}
-                <div className="buttonDiv">
-                    <div className='signUpLabel'><label>Password</label></div>
-                    <TextField className='signup' id="outlined-basic" variant="outlined" onChange = {e => setPassword(e.target.value)}/>
+              <div className="buttonDiv">
+                <div className="signUpLabel">
+                  <label>Password</label>
                 </div>
-                <div className="buttonDiv">
-                  <Button type="submit" classes={classes} variant="contained" disableElevation >
-                    Log in
-                  </Button>
-                </div>
-                <div>
-                  <Button type="submit" classes={classes} variant="contained" disableElevation onClick={handleDemoSubmit}>Log in as demo user</Button>
-                </div>
-              </form>
-            </ThemeProvider>
+                <TextField
+                  className="signup"
+                  id="outlined-basic"
+                  variant="outlined"
+                  type="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <div className="buttonDiv">
+                <Button
+                  type="submit"
+                  classes={classes}
+                  variant="contained"
+                  disableElevation
+                >
+                  Log in
+                </Button>
+              </div>
+              <div>
+                <Button
+                  type="submit"
+                  classes={classes}
+                  variant="contained"
+                  disableElevation
+                  onClick={handleDemoSubmit}
+                >
+                  Log in as demo user
+                </Button>
+              </div>
+              <div className="signUpOption">
+                <span>
+                  Not a member? <Link to="/signup">Sign up</Link>
+                </span>
+              </div>
+            </form>
+          </ThemeProvider>
         </Container>
       </>
-    )
+    );
 }
 
 export default LoginPage;

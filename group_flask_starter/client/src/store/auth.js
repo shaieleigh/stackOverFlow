@@ -36,11 +36,22 @@ export const login = (email, password) => {
       // error handling
       const { message } = res.data;
 
+<<<<<<< HEAD
       const errorsList = document.getElementById("errors");
       if(errorsList) {
         errorsList.innerHTML = '';
       }
       if (message) {
+=======
+      if (message){
+
+        console.log("this is the error message", message)
+        const errorsList = document.getElementById("errors");
+        if(errorsList) {
+          errorsList.innerHTML = '';
+        }
+    
+>>>>>>> 8ba5ce78d50342a7d7902c8c8f2dfbf8059cef37
         errorsList.style.display = "flex";
         const errorLi = document.createElement('li');
         errorLi.innerHTML = message;
@@ -57,12 +68,15 @@ export const login = (email, password) => {
 
 export const logout = () => {
     return async (dispatch) => {
-      const res = await fetch('/api/users', {
+      const res = await fetch("/api/users/logout", {
         method: "delete",
       });
-      if (res.ok) dispatch(removeUser());
-      res.data = await res.json();
-      return res;
+      if(res.okay){
+        dispatch(removeUser());
+        return "goodbye"
+
+      }
+   
     };
 };
 
