@@ -20,10 +20,6 @@ const theme = createMuiTheme({
     }
 })
 
-
-
-
-
 export default function Questions() {
     const dispatch = useDispatch();
     useEffect(() => {

@@ -47,7 +47,7 @@ const theme = createMuiTheme({
       }
     },
   });
-
+   
 
 function LoginPage() {
     const [email, setEmail] = useState('');
@@ -69,7 +69,7 @@ function LoginPage() {
         //history.push("/");
     }
 
-    if (currentUserToken) return <Redirect to="/questions" />;
+    // if (currentUserToken) return <Redirect to="/questions" />;
 
     return (
       <>

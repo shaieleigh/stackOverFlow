@@ -27,6 +27,7 @@ login = LoginManager(app)
 @login.user_loader #configs LoginManger to use load_user func to get employee objects from database
 def load_user(id):
     return User.query.get(int(id))
+    
 ## Application Security
 jwt = JWTManager(app)
 CORS(app)

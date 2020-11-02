@@ -52,7 +52,7 @@ export const login = (email, password) => {
       }
       return res;
     }
-  }
+}
 
 
 export const logout = () => {
