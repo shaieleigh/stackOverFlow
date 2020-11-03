@@ -9,6 +9,9 @@ import './QuestionLi.css'
 
 
 function QuestionLi({ question }) {
+    const colorlist = ["orange", "blue", "green", "pink", "purple", "violet", "turquoise", "teal", "red"]
+    const rand = Math.floor(Math.random() * 9)
+
     const tagRender = () => {
         const list1 = []
         if (question.tags) {
@@ -34,9 +37,10 @@ function QuestionLi({ question }) {
             <span id="answer"> {question.body} </span>
             <span id="qbody">
 
-                <NavLink to={`/questions/q/${question.id}`} id="linkz">{question.title}</NavLink>
+                <NavLink className="qlink" to={`/questions/q/${question.id}`} id="linkz">{question.title}</NavLink>
             </span>
             <span id="qusername">
+                <span id="accounticon" style={{backgroundColor: colorlist[rand]}} ><span>{question.username ? question.username[0] : "U"}</span></span>
                 {question.username}
             </span>
             <span id="space">

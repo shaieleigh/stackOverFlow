@@ -32,6 +32,7 @@ const receiveQuestion = (question) => {
 
       const data = await res.json();
 
+
       dispatch(receiveQuestions(data.questions));
 
     };

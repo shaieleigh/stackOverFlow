@@ -17,7 +17,7 @@ function QuestionForm() {
         console.log(taglist)
         e.preventDefault();
         const userId = auth.user.id
-        await fetch('/api/questions/ask', {
+        const res = await fetch('/api/questions/ask', {
             method: 'post',
             headers: {
                 "Content-Type": "application/json",
@@ -25,7 +25,19 @@ function QuestionForm() {
             },
             body: JSON.stringify({ title, userId, body, taglist })
         });
-        history.push('/questions');
+        const data = await res.json();
+        const { message } = data;
+        const errorsList = document.getElementById("question-errors");
+        errorsList.innerHTML = '';
+        if (message) {
+            errorsList.style.display = "flex";
+            const errorLi = document.createElement('li');
+            errorLi.innerHTML = message;
+            errorsList.appendChild(errorLi)
+
+        } else {
+            history.push('/questions');
+        }
     }
     if (!auth.user) return <Redirect to="/login" />;
 
@@ -67,6 +79,9 @@ function QuestionForm() {
         <>
             <NavBar />
             <div id='form-container'>
+                 <div className="errors-container">
+                    <ul className="errors" id="question-errors"></ul>
+                 </div>
                 <form id='question-form'>
                     <label className='title-divs'>Title</label>
                     <input className='input-question-form' placeholder='e.g. Is there a prize at the bottom of a Cracker Jack box?' onChange={e => setTitle(e.target.value)} />

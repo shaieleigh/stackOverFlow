@@ -43,10 +43,13 @@ def index():
 @question_routes.route('/ask', methods=['POST'])
 def askQuestion():
   data = request.get_json()
-
-  title = data["title"]
-  userId = data['userId']
   body = data['body']
+  title = data['title']
+  print(title)
+  print(body)
+  if not title or not body:
+      return jsonify(message="A title and body are required"), 400
+  userId = data['userId']
   taglist = data['taglist']
 
   question = Question(
