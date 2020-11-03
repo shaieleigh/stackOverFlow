@@ -55,7 +55,7 @@ export const login = (email, password) => {
       }
       return res;
     }
-  }
+}
 
 
 export const logout = () => {
@@ -63,7 +63,7 @@ export const logout = () => {
       const res = await fetch("/api/users/logout", {
         method: "delete",
       });
-      if(res.okay){
+      if(res.ok){
         dispatch(removeUser());
         return "goodbye"
 
