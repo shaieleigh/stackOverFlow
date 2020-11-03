@@ -1,10 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Redirect} from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import { logout } from "../store/auth"
 import Cookies from "js-cookie";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import NavBar from "./NavBar";
 
 const colors = {
   text: "white",
@@ -30,12 +31,13 @@ const useStyles = makeStyles({
 function LogoutButton(props) {
   const dispatch = useDispatch();
   const classes = useStyles();
+   const history = useHistory();
 
   const handleLogout = (e) => {
     const res = dispatch(logout());
     //debugger
     if (res.ok) Cookies.remove("token");
-    console.log("logoutbutton.js")
+    history.push('/questions')
     
 
   };
