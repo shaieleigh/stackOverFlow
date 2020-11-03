@@ -18,7 +18,7 @@ function AnswerForm(questionId1) {
         const username = auth.user.username
         const questionId = questionId1.questionId
         const voteCount = 0
-        await fetch(`/api/answers/${questionId}`, {
+        const res = await fetch(`/api/answers/${questionId}`, {
             method: 'post',
             headers: {
                 "Content-Type": "application/json",
@@ -26,27 +26,39 @@ function AnswerForm(questionId1) {
             },
             body: JSON.stringify({ userId, questionId, body, voteCount, username })
         });
-
-        const vote = 1
-        await fetch(`/api/questions/${questionId}/answerCount`, {
-                method: 'put',
-                headers: {
-                    "Content-Type": "application/json",
-                    "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
-                },
-                body: JSON.stringify({ vote })
-        });
-        setBody("")
-        document.getElementById("getme").value = ""
-        dispatch(fetchAnswers(questionId))
-
+        const data = await res.json();
+        const { message } = data;
+        const errorsList = document.getElementById("answer-errors");
+        errorsList.innerHTML = '';
+        if (message) {
+            errorsList.style.display = "flex";
+            const errorLi = document.createElement('li');
+            errorLi.innerHTML = message;
+            errorsList.appendChild(errorLi)
+        } else {
+            errorsList.style.display = "none";
+            const vote = 1
+            await fetch(`/api/questions/${questionId}/answerCount`, {
+                    method: 'put',
+                    headers: {
+                        "Content-Type": "application/json",
+                        "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+                    },
+                    body: JSON.stringify({ vote })
+            });
+            setBody("")
+            document.getElementById("getme").value = ""
+            dispatch(fetchAnswers(questionId))
+        }
 
     }
 
 
     return (
         <>
-
+                <div className="errors-container">
+                    <ul className="errors" id="answer-errors"></ul>
+                 </div>
                 <form id='answer-form'>
                     <textarea id="getme" rows='12' onChange={e => setBody(e.target.value)} />
                 </form>

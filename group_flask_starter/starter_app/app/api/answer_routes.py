@@ -29,6 +29,8 @@ def answer(questionId):
     userId = data['userId']
     questionId = data['questionId']
     body = data['body']
+    if not body:
+        return jsonify(message="A body is required"), 400
     voteCount = data['voteCount']
     username = data['username']
 
