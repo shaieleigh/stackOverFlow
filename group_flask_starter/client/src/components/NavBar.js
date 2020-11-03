@@ -193,7 +193,7 @@ export default function NavBar() {
           <NavLink to="/questions">
           <StackLogo />
           </NavLink>
-          <div className={classes.search}>
+          {/* <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon className='searchIcon' />
             </div>
@@ -205,13 +205,13 @@ export default function NavBar() {
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
-          </div>
+          </div> */}
           <div className={classes.grow} />
           {currentUserToken ? <LogoutButton>Log Out</LogoutButton> : (
           <>
           <button id='navbarLogin'><NavLink id='navLinkBar' to='/login'>Log In</NavLink></button>
           {/* <button id='navbarLogin' onClick={handleDemoSubmit}>Demo Log In</button>  */}
-          <button id='navbarSignup' onClick={handleSignUpButton}><NavLink id='navLinkBar' to='/signup'>Sign up</NavLink></button>
+          <button id='navbarSignup' onClick={handleSignUpButton}><NavLink id='navLinkBar1' to='/signup'>Sign up</NavLink></button>
           </>)}
 
         </Toolbar>

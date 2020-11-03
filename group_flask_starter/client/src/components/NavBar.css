@@ -15,7 +15,14 @@
     color: white;
 }
 
+#navLinkBar1 {
+    text-decoration: none;
+    color: white;
+
+}
+
 #navLinkBar {
     text-decoration: none;
+    color: #0077cc;
 
 }
