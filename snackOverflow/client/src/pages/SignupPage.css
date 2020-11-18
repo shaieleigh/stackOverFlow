@@ -1,0 +1,139 @@
+html, body {
+  background-color: transparent !important;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.MuiBox-root {
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: baseline; */
+  width: 100%;
+}
+
+
+.MuiInputBase-root {
+  height: 40px;
+  width: 90%;
+}
+
+.box {
+    width: 100%;
+    padding: 20px;
+    height: 100%;
+
+  }
+
+.signUpDiv {
+    border: 1px solid lightgrey;
+    max-width: 24rem;
+    width: 15rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 2px 0px 30px rgb(190, 190, 190);
+    border-radius: 10px;
+    margin-left: 20%;
+}
+
+label {
+  font: 15px Arial, "Helvetica Neue";
+  font-weight: bold;
+  padding: 10px 2px 20px 2px;
+  width: 100%;
+}
+
+.buttonDiv {
+  padding: 10px 0px 5px 0px;
+  margin-top: 10px;
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.signUpLabel {
+  margin-bottom: 5px;
+  display: block;
+}
+
+
+
+.signUpButton {
+  width: 100%;
+  position: relative;
+  top: 30px;
+  /* bottom: 500px; */
+  margin-bottom: 0px;
+  margin-right: 0px;
+  padding-bottom: 0px;
+
+}
+
+.errors-container {
+   display: flex;
+   justify-content: center;
+}
+
+.errors{
+    display: none;
+    width: 100%;
+    background-color: rgb(253, 183, 173);
+    border: 1px solid rgb(250, 96, 74);
+    border-color: rgb(250, 96, 74);
+    border-radius: 3px;
+    color: #333333;
+    margin: 16px 0;
+    padding: 12px;
+    text-align: center;
+    list-style-type: none;
+}
+
+.signup {
+  width: 100% !important;
+}
+
+.signUpBlurb {
+  height: 400px;
+  width: 400px;
+  left: 15%;
+  top: 30%;
+  bottom: 20%;
+  margin-right: 30px;
+}
+
+.blurbHeading {
+  font-size: x-large;
+
+  /* font-weight: bold; */
+}
+
+.middleDiv {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 15%;
+  left: 15%;
+  right: 15%;
+  bottom: 15%;
+  align-items: center;
+}
+
+.signupP {
+  line-height: 2em;
+  font-size: smaller;
+  padding: 1em 0 1em 0;
+}
+
+.little {
+  margin-top: 1em;
+  font-size: xx-small;
+  color: gray;
+}
