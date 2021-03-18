@@ -8,6 +8,7 @@ RUN ["pip", "install", "-r", "requirements.txt"]
 # our host machine.
 RUN ["cp", "-r", "app/static/static/js", "app/static"]
 RUN ["cp", "-r", "app/static/static/css", "app/static"]
+
 # Setup Flask environment
 ENV FLASK_APP=app
 ENV FLASK_ENV=production

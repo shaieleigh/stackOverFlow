@@ -29,7 +29,7 @@ login = LoginManager(app)
 @login.user_loader #configs LoginManger to use load_user func to get employee objects from database
 def load_user(id):
     return User.query.get(int(id))
-    
+
 ## Application Security
 jwt = JWTManager(app)
 CORS(app)
@@ -49,4 +49,6 @@ def react_root(path):
     print("path", path)
     if path == 'favicon.ico':
         return app.send_static_file('favicon.ico')
+    if path == 'snackOverflowLinkPreview.png':
+        return app.send_static_file('snackOverflowLinkPreview.png')
     return app.send_static_file('index.html')
